@@ -1,4 +1,4 @@
-import reset from "./reset";
 import theme from "./theme";
+import global from "./global";
 
-export { reset, theme };
+export { global, theme };
