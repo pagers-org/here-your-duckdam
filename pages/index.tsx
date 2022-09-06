@@ -4,7 +4,7 @@ import {
     MessageBox,
     MessageItem,
     SplashRabbit,
-} from '@components/attitude';
+} from '@components/main';
 
 const Main = () => {
     return (
