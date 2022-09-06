@@ -32,5 +32,5 @@ const Wrapper = styled.div`
     max-width: 480px;
     width: 100%;
     height: 100vh;
-    background-color: ${({ theme }) => theme.color.dark};
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
 `;
