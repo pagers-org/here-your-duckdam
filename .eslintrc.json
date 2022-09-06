@@ -1,6 +1,24 @@
 {
-  "extends": "next/core-web-vitals",
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "simple-import-sort"],
+  "env": {
+    "browser": true,
+    "es2022": true
+  },
+  "extends": [
+    "next/core-web-vitals",
+    "eslint:recommended",
+    "plugin:@next/next/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/typescript",
+    "plugin:import/recommended",
+    "plugin:prettier/recommended"
+  ],
   "rules": {
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "react/jsx-uses-react": "off",
+    "react/jsx-uses-vars": "error",
     "react/no-unknown-property": ["error", { "ignore": ["css"] }]
   }
 }
