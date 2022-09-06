@@ -1,28 +1,23 @@
-import Logo from '@components/common/Logo';
-import styled from '@emotion/styled';
-import { useRouter } from 'next/router';
-import React, { useEffect } from 'react';
+import {
+    AttitudeRange,
+    AttitudeTitle,
+    MessageBox,
+    MessageItem,
+    SplashRabbit,
+} from '@components/attitude';
 
 const Main = () => {
-    const router = useRouter();
-
-    useEffect(() => {
-        setTimeout(() => router.push('/attitude'), 3000);
-    }, [router]);
-
     return (
-        <Wrapper>
-            <Logo />
-        </Wrapper>
+        <>
+            <SplashRabbit />
+            <AttitudeTitle text={'다른 토끼들은 이런 메시지를 뽑았어요.'} />
+            <MessageBox>
+                <MessageItem>친구야, 이거 보면 치킨 사줘야해</MessageItem>
+                <MessageItem>친구야, 이거 보면 치킨 사줘야해</MessageItem>
+            </MessageBox>
+            <AttitudeRange initialValue={50} />
+        </>
     );
 };
 
 export default Main;
-
-const Wrapper = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    width: 100%;
-`;
