@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 
 const politeTypes = {
     0: '🙄',
