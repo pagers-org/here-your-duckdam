@@ -1,14 +1,11 @@
-import React from 'react';
 import styled from '@emotion/styled';
-
+import React from 'react';
 
 const MessageBox = (props: { children: React.ReactNode }) => {
-    return (
-        <Wrapper>{props.children}</Wrapper>
-    )
-}
+    return <Wrapper>{props.children}</Wrapper>;
+};
 
-export default MessageBox
+export default MessageBox;
 
 const Wrapper = styled.section`
     height: 50%;
@@ -19,4 +16,4 @@ const Wrapper = styled.section`
     align-items: flex-end;
     box-sizing: border-box;
     padding: 2rem;
-`
+`;
