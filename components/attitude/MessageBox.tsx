@@ -19,5 +19,4 @@ const Wrapper = styled.section`
     align-items: flex-end;
     box-sizing: border-box;
     padding: 2rem;
-
 `

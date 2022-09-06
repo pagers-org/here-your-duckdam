@@ -123,5 +123,4 @@ const StyledRange = styled.div`
     label { 
         font-size : 2rem;
     }
-
 `
