@@ -5,6 +5,7 @@ export const color = {
     black: '#000',
     dark: '#222',
     darkGray: '#3A3A3A',
+    orange: '#FFCC8E',
 } as const;
 
 export const theme = {

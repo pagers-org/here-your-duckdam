@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import React from 'react';
-import theme, { color } from 'styles/theme';
+import { color } from 'styles/theme';
 
 type IButton = {
     children: React.ReactNode;
@@ -11,12 +11,17 @@ type IButton = {
 
 const setDefaultButton = ({
     children,
+    onClick,
     backgroundColor = color.buttonYellow,
     padding = '16px',
 }: IButton) => {
     return (
         <Wrapper>
-            <StyledButton padding={padding} backgroundColor={backgroundColor}>
+            <StyledButton
+                onClick={onClick}
+                padding={padding}
+                backgroundColor={backgroundColor}
+            >
                 {children}
             </StyledButton>
         </Wrapper>

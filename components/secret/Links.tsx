@@ -1,29 +1,18 @@
 import styled from '@emotion/styled';
 import React from 'react';
 
-const Links = (props: { src?: string }) => {
-    return (
-        <>
-            <StyledLinks>
-                <StyledLink>{props.src}</StyledLink>
-            </StyledLinks>
-        </>
-    );
+export const shareOnKakao = () => {};
+
+export const shareOnOthers = () => {
+    if (navigator.share) {
+        navigator
+            .share({
+                title: '비밀 덕담이 도착했습니다!',
+                text: '여기를 눌러 덕담을 확인하세요.',
+                url: 'https://here-your-duckdam-mc4mu29lp-duckdam-trio.vercel.app/',
+            })
+            .catch(console.error);
+    } else {
+        alert('공유하기가 지원되지 않는 환경 입니다.');
+    }
 };
-
-export default Links;
-
-const StyledLinks = styled.div`
-    padding: 2rem;
-    width: 80%;
-    height: 20px;
-    display: flex;
-    justify-content: space-around;
-    background-color: lightgray;
-`;
-const StyledLink = styled.img`
-    padding: 2rem;
-    width: 100px;
-    height: 100px;
-    border-radius: 10px;
-`;
