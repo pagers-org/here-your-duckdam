@@ -1,9 +1,9 @@
 import styled from '@emotion/styled';
 import React from 'react';
 
-export const shareOnKakao = () => {};
+export const shareKakaoLink = () => {};
 
-export const shareOnOthers = () => {
+export const shareOtherLinks = () => {
     if (navigator.share) {
         navigator
             .share({

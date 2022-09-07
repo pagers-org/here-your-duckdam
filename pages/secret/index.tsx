@@ -1,7 +1,7 @@
 import {
     Button,
     Description,
-    shareOnOthers,
+    shareOtherLinks,
     MessageBox,
     Title,
 } from '@components/secret';
@@ -38,7 +38,7 @@ const Secret = () => {
                 </Button>
                 <Button
                     onClick={() => {
-                        shareOnOthers();
+                        shareOtherLinks();
                     }}
                     backgroundColor={theme.color.orange}
                 >
