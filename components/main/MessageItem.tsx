@@ -5,7 +5,7 @@ import React from 'react';
 
 const MessageItem = (props: { children: React.ReactNode }) => {
     return (
-        <TransitionBox keyframe="slideInRight">
+        <TransitionBox keyframe="fadeIn">
             <Wrapper>{props.children}</Wrapper>
         </TransitionBox>
     );

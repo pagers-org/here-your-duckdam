@@ -6,6 +6,7 @@ export type KeyframeKey =
     | 'slideInUp'
     | 'slideInDown'
     | 'pulse'
-    | 'fadeInRight';
+    | 'fadeInRight'
+    | 'fadeIn';
 
 export type KeyframeType = Record<KeyframeKey, Keyframes>;
