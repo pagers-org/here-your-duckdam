@@ -1,15 +1,13 @@
-import React from 'react'
 import styled from '@emotion/styled';
+import React from 'react';
 
 const AttitudeTitle = (props: { text: string }) => {
-    return (
-        <StyledTitle>{props.text}</StyledTitle>
-    )
-}
+    return <StyledTitle>{props.text}</StyledTitle>;
+};
 
-export default AttitudeTitle
+export default AttitudeTitle;
 
 const StyledTitle = styled.h2`
     padding: 2rem;
     word-break: keep-all;
-`
+`;
