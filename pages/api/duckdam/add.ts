@@ -1,14 +1,6 @@
 import { addDoc, collection } from '@firebase/firestore';
 import { NextApiRequest, NextApiResponse } from 'next';
-// eslint-disable-next-line import/no-unresolved
 import { db } from 'utils/firebase';
-
-type ValueType = {
-    img_url: string;
-    first_word: string;
-    second_word: string;
-    third_word: string;
-};
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === 'POST') {
@@ -20,7 +12,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
             second_word: second_word,
             third_word: third_word,
         });
-        res.status(200).json('success');
+        res.status(200).json(docRef.id);
     }
 }
 
