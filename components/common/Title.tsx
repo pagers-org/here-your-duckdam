@@ -1,11 +1,8 @@
 import styled from '@emotion/styled';
 import React from 'react';
 
-type Title = {
-    children: React.ReactNode;
-};
-const Title = ({ children }: Title) => {
-    return <StyledTitle>{children}</StyledTitle>;
+const Title = (props: { children: React.ReactNode }) => {
+    return <StyledTitle>{props.children}</StyledTitle>;
 };
 
 export default Title;
