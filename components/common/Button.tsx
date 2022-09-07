@@ -2,24 +2,24 @@ import styled from '@emotion/styled';
 import React from 'react';
 import { color } from 'styles/theme';
 
-type IButton = {
+type Button = {
     children: React.ReactNode;
     onClick?: () => void;
     backgroundColor?: typeof color[keyof typeof color];
-    padding?: string;
+    marginTop?: string;
 };
 
 const setDefaultButton = ({
     children,
     onClick,
+    marginTop,
     backgroundColor = color.buttonYellow,
-    padding = '16px',
-}: IButton) => {
+}: Button) => {
     return (
         <Wrapper>
             <StyledButton
                 onClick={onClick}
-                padding={padding}
+                marginTop={marginTop}
                 backgroundColor={backgroundColor}
             >
                 {children}
@@ -35,7 +35,7 @@ const Wrapper = styled.div`
     padding: 9px 0;
 `;
 
-const StyledButton = styled.button<IButton>`
+const StyledButton = styled.button<Button>`
     width: 90%;
     background-color: ${(props) => props.backgroundColor};
     border: none;
@@ -45,9 +45,10 @@ const StyledButton = styled.button<IButton>`
     align-items: center;
     font-weight: bold;
     font-size: 1em;
-    padding: ${(props) => props.padding};
+    padding: 16px;
     position: relative;
     right: 0;
     left: 0;
     margin: 0 auto;
+    margin-top: ${(props) => props.marginTop};
 `;
