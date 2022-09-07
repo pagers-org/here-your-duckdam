@@ -19,7 +19,6 @@ const Main = () => {
             </MessageBox>
             <AttitudeRange initialValue={50} />
             <Button
-                marginTop="100px"
                 onClick={() => {
                     Router.push('/secret');
                 }}

@@ -6,22 +6,16 @@ type ButtonType = {
     children: React.ReactNode;
     onClick?: () => void;
     backgroundColor?: typeof color[keyof typeof color];
-    marginTop?: string;
 };
 
 const Button = ({
     children,
     onClick,
-    marginTop,
     backgroundColor = color.buttonYellow,
 }: ButtonType) => {
     return (
         <Wrapper>
-            <StyledButton
-                onClick={onClick}
-                marginTop={marginTop}
-                backgroundColor={backgroundColor}
-            >
+            <StyledButton onClick={onClick} backgroundColor={backgroundColor}>
                 {children}
             </StyledButton>
         </Wrapper>
@@ -50,5 +44,4 @@ const StyledButton = styled.button<ButtonType>`
     right: 0;
     left: 0;
     margin: 0 auto;
-    margin-top: ${(props) => props.marginTop};
 `;
