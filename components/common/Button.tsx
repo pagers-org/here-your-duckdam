@@ -2,19 +2,19 @@ import styled from '@emotion/styled';
 import React from 'react';
 import { color } from 'styles/theme';
 
-type Button = {
+type ButtonType = {
     children: React.ReactNode;
     onClick?: () => void;
     backgroundColor?: typeof color[keyof typeof color];
     marginTop?: string;
 };
 
-const setDefaultButton = ({
+const Button = ({
     children,
     onClick,
     marginTop,
     backgroundColor = color.buttonYellow,
-}: Button) => {
+}: ButtonType) => {
     return (
         <Wrapper>
             <StyledButton
@@ -28,14 +28,14 @@ const setDefaultButton = ({
     );
 };
 
-export default setDefaultButton;
+export default Button;
 
 const Wrapper = styled.div`
     width: 100%;
     padding: 9px 0;
 `;
 
-const StyledButton = styled.button<Button>`
+const StyledButton = styled.button<ButtonType>`
     width: 90%;
     background-color: ${(props) => props.backgroundColor};
     border: none;
