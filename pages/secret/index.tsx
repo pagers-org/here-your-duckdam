@@ -9,7 +9,7 @@ import styled from '@emotion/styled';
 import { theme } from '@styles';
 import Image from 'next/image';
 
-import loadingGif from '../../public/images/loading-done.gif';
+import loadingGif from 'public/images/loading-done.gif';
 
 const Secret = () => {
     return (
