@@ -1,4 +1,4 @@
-import { collection, getDocs } from '@firebase/firestore';
+import { collection, doc, getDoc } from "@firebase/firestore";
 import { NextApiRequest, NextApiResponse } from 'next';
 import { db } from 'utils/firebase';
 
@@ -12,14 +12,13 @@ type DataType = Record<string, ValueType>;
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === 'GET') {
-        const data: DataType = {};
-        const querySnapshot = await getDocs(collection(db, 'duckdam'));
-        querySnapshot.forEach((doc) => {
-            const value = doc.data() as ValueType;
-            data[doc.id] = value;
-        });
+        const { id } = req.query;
+        const parseId = id as string;
 
-        res.status(200).json(data);
+        const docRef = doc(db, "duckdam", parseId);
+        const docSnap = await getDoc(docRef);
+        
+        res.status(200).json(docSnap.data());
     }
 }
 

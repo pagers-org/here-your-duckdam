@@ -1,6 +1,5 @@
 import { addDoc, collection } from '@firebase/firestore';
 import { NextApiRequest, NextApiResponse } from 'next';
-// eslint-disable-next-line import/no-unresolved
 import { db } from 'utils/firebase';
 
 type ValueType = {
