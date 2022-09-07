@@ -13,6 +13,10 @@
     "@emotion/babel-plugin": "^11.10.2",
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
+    "@firebase/app": "^0.7.32",
+    "@firebase/firestore": "^3.4.15",
+    "@firebase/storage": "^0.9.9",
+    "firebase-tools": "^11.8.0",
     "next": "12.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0"
