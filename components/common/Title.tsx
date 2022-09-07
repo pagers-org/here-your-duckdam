@@ -1,13 +1,18 @@
 import styled from '@emotion/styled';
 import React from 'react';
 
-const Title = (props: { text: string }) => {
-    return <StyledTitle>{props.text}</StyledTitle>;
+type Title = {
+    children: React.ReactNode;
+};
+const Title = ({ children }: Title) => {
+    return <StyledTitle>{children}</StyledTitle>;
 };
 
 export default Title;
 
 const StyledTitle = styled.div`
-    padding: 2rem;
     word-break: keep-all;
+    font-size: 22px;
+    font-weight: bold;
+    letter-spacing: -0.29px;
 `;

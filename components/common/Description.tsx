@@ -8,8 +8,12 @@ const Description = (props: { text: string }) => {
 export default Description;
 
 const StyledDescription = styled.div`
-    padding: 2rem;
-    word-break: keep-all;
-    font-size: 0.8em;
-    color: gray;
+    padding: 21px 34px;
+    word-break: break-all;
+    font-size: 14px;
+    color: ${({ theme }) => theme.color.darkGray};
+    width: 150px;
+    line-height: 150%;
+    letter-spacing: -0.29px;
+    text-align: center;
 `;

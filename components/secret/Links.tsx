@@ -2,12 +2,13 @@ import styled from '@emotion/styled';
 import React from 'react';
 
 const Links = (props: { src?: string }) => {
-    return <>
-        <StyledLinks>
-            <StyledLink>{props.src}</StyledLink>
-        </StyledLinks>
-    </>
-    
+    return (
+        <>
+            <StyledLinks>
+                <StyledLink>{props.src}</StyledLink>
+            </StyledLinks>
+        </>
+    );
 };
 
 export default Links;
