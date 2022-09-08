@@ -10,6 +10,19 @@ declare module '@emotion/react' {
             dark: string;
             darkGray: string;
             orange: string;
+            brown: string;
+        };
+    }
+    export interface ThemeMode {
+        bg: {
+            primary: string;
+            button: string;
+            message: string;
+        };
+        text: {
+            primary: string;
+            link: string;
+            button: string;
         };
     }
 }
