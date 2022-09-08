@@ -5,7 +5,6 @@ export default function Document() {
         <Html>
             <Head>
                 <script
-                    crossOrigin="true"
                     defer
                     src="https://developers.kakao.com/sdk/js/kakao.min.js"
                 ></script>

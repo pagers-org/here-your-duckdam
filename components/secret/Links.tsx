@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
 import React from 'react';
-import { kakao } from 'global';
+import { KakaoSDK } from 'global';
 
 export const shareKakaoLink = () => {
     const { Kakao } = window;
