@@ -2,7 +2,11 @@ import styled from '@emotion/styled';
 import React from 'react';
 import { KakaoSDK } from 'global';
 
-export const shareKakaoLink = () => {
+type shareKakaoType = {
+    imageURL: string;
+};
+
+export const shareKakaoLink = ({ imageURL }: shareKakaoType) => {
     const { Kakao } = window;
 
     Kakao.Share.sendDefault({
@@ -12,8 +16,7 @@ export const shareKakaoLink = () => {
             description: '여기를 눌러 덕담을 확인하세요 💌',
             imageWidth: 800,
             imageHeight: 420,
-            imageUrl:
-                'https://firebasestorage.googleapis.com/v0/b/here-your-duckdam.appspot.com/o/images%2F220px-HTML5_logo_and_wordmark.svg.png?alt=media&token=6f5863ac-176b-4ef4-b7e1-63fed6b9256b',
+            imageUrl: imageURL,
             link: {
                 webUrl: process.env.NEXT_PUBLIC_SITE_URL,
                 mobileWebUrl: process.env.NEXT_PUBLIC_SITE_URL,
