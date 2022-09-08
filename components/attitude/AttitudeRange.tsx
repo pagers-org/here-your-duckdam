@@ -1,35 +1,23 @@
 import styled from '@emotion/styled';
-import React, { useMemo, useState } from 'react';
+import React, { useState } from 'react';
 
-const politeTypes = {
-    0: '🙄',
-    1: '😀',
-    2: '😇',
-};
-
-const AttitudeRange = (props: { initialValue: number }) => {
+const AttitudeRange = (props: {
+    initialValue: number;
+    handleRange: (range: number) => void;
+}) => {
     const [rangeValue, setRangeValue] = useState(props.initialValue);
     const handleRangeValue = (event: React.ChangeEvent<HTMLInputElement>) => {
         setRangeValue(event.target.valueAsNumber);
+        props.handleRange(rangeValue);
     };
-
-    const politeEmoji = useMemo(() => {
-        if (rangeValue > 50) {
-            return politeTypes[2];
-        }
-
-        if (rangeValue === 0) {
-            return politeTypes[0];
-        }
-
-        if (rangeValue > 0) {
-            return politeTypes[1];
-        }
-    }, [rangeValue]);
 
     return (
         <StyledRange>
-            <label htmlFor="range">{politeEmoji}</label>
+            <label htmlFor="range">
+                <span>0</span>
+                <span>50</span>
+                <span>100</span>
+            </label>
             <input
                 type="range"
                 id="range"
@@ -47,6 +35,12 @@ const StyledRange = styled.div`
     justify-content: center;
     flex-direction: column;
     align-items: center;
+
+    label {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+    }
 
     input[type='range'] {
         width: 300px;

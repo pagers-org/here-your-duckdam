@@ -3,10 +3,15 @@ import styled from '@emotion/styled';
 import { Keyframe, KeyframeKey } from '@styles/keyframe';
 import React from 'react';
 
-const MessageItem = (props: { children: React.ReactNode }) => {
+type ItemProps = {
+    children: React.ReactNode;
+    type?: 'default' | 'guest';
+};
+
+const MessageItem = ({ type = 'default', children }: ItemProps) => {
     return (
-        <TransitionBox keyframe="fadeIn">
-            <Wrapper>{props.children}</Wrapper>
+        <TransitionBox keyframe={'fadeIn'}>
+            <Wrapper type={type}> {children}</Wrapper>
         </TransitionBox>
     );
 };
@@ -25,9 +30,10 @@ const TransitionBox = styled.div<{
         `};
 `;
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ type: string }>`
     position: relative;
-    background: ${({ theme }) => theme.color.yellow};
+    background-color: ${({ theme, type }) =>
+        type === 'guest' ? theme.color.white : theme.color.orange};
     border-radius: 0.4em;
     padding: 1.3rem;
     margin: 0.3rem;
@@ -40,7 +46,8 @@ const Wrapper = styled.div`
         width: 0;
         height: 0;
         border: 20px solid transparent;
-        border-left-color: ${({ theme }) => theme.color.yellow};
+        border-left-color: ${({ theme, type }) =>
+            type === 'guest' ? theme.color.white : theme.color.orange};
         border-right: 0;
         border-bottom: 0;
         margin-top: -10px;
