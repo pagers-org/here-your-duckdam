@@ -1,7 +1,7 @@
 import { Button, MessageBox, Title } from '@components/common';
+import MetaHead from '@components/common/MetaHead';
 import { Card } from '@components/result';
 import styled from '@emotion/styled';
-import Head from 'next/head';
 import Router from 'next/router';
 
 type ResultProps = {
@@ -19,32 +19,12 @@ const ResultDetail = ({ data }: ResultProps) => {
 
     return (
         <>
-            <Head>
-                <title>사실은...</title>
-                <meta
-                    name="description"
-                    content="토끼가 만들어준 덕담을 확인해보세요! 장난꾸러기 토끼와 재밌고 즐거운 한가위 보내시길 바랍니다🐰"
-                />
-                <meta name="keyword" content="즐거운, 토끼" />
-                <meta property="og:image" content={img_url} />
-                <meta property="og:image:width" content="1200" />
-                <meta property="og:image:height" content="630" />
-                <meta property="og:title" content="비밀 덕담이 도착했습니다!" />
-                <meta
-                    property="og:description"
-                    content="여기를 눌러 덕담을 확인하세요 💌"
-                />
-                <meta name="twitter:card" content="summary" />
-                <meta
-                    name="twitter:title"
-                    content="비밀 덕담이 도착했습니다!"
-                />
-                <meta
-                    name="twitter:description"
-                    content="여기를 눌러 덕담을 확인하세요 💌"
-                />
-                <meta name="twitter:image" content={img_url} />
-            </Head>
+            <MetaHead
+                tabTitle="사실은..."
+                title="비밀 덕담이 도착했습니다!"
+                description="여기를 눌러 덕담을 확인하세요 💌"
+                img_url={img_url}
+            />
             <Wrapper>
                 <Title>내 진짜 마음은...</Title>
                 <MessageBox>
