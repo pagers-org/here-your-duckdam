@@ -5,10 +5,9 @@ import { DuckDomWithImg } from '@shared/types/DuckDam';
 import { theme } from '@styles/index';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import loadingGif from 'public/images/loading-done.gif';
+import loadingGif from 'public/icons/duckdam-package.svg';
 import { useEffect, useState } from 'react';
 
-const LodingImageSize = 188;
 const Result = () => {
     const router = useRouter();
     const [duckdam, setDuckdam] = useState<DuckDomWithImg>();
@@ -27,12 +26,7 @@ const Result = () => {
     return (
         <>
             <Wrapper>
-                <Image
-                    src={loadingGif}
-                    width={LodingImageSize}
-                    height={LodingImageSize}
-                    alt="로딩 완료 이미지"
-                />
+                <Image src={loadingGif} alt="로딩 완료 이미지" />
 
                 <MessageBox>
                     <Title>덕담이 만들어졌어요!</Title>
