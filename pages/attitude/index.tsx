@@ -6,10 +6,16 @@ import {
     MessageItem,
 } from '@components/main';
 import useAttitudeHooks from 'hooks/useAttitudeHooks';
-import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 const Attitude = () => {
-    const { message1, message2, setPoliteRange } = useAttitudeHooks();
+    const { message1, message2, politeLevel, setPoliteRange } =
+        useAttitudeHooks();
+    const router = useRouter();
+
+    const addNewDuckDamHandler = () => {
+        router.push(`load/?politeLevel=${politeLevel}`);
+    };
 
     return (
         <>
@@ -23,9 +29,7 @@ const Attitude = () => {
                 initialValue={50}
                 handleRange={(range) => setPoliteRange(range)}
             />
-            <Link href="secret">
-                <Button>예절 수치 정했어!</Button>
-            </Link>
+            <Button onClick={addNewDuckDamHandler}>예절 수치 정했어!</Button>
         </>
     );
 };

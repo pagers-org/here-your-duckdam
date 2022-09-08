@@ -1,7 +1,5 @@
-import { word_0, word_1, word_2 } from 'constant/CardMessage';
-import { useCallback, useEffect, useMemo, useState } from 'react';
-
-const randomNumber = (length: number) => Math.floor(Math.random() * length);
+import { useEffect, useMemo, useState } from 'react';
+import { randomNewDuckDamMessage } from 'shared/utils/duckdamGenerator';
 
 const useAttitudeHooks = () => {
     const [politeRange, setPoliteRange] = useState<number>(50);
@@ -23,19 +21,17 @@ const useAttitudeHooks = () => {
         return 100;
     }, [politeRange]);
 
-    const messageGenerator = useCallback(() => {
-        return `${word_0[randomNumber(word_0.length)]}
-        ${word_1[politeLevel][randomNumber(word_1[politeLevel].length)]} 
-        ${word_2[politeLevel][randomNumber(word_2[politeLevel].length)]}`;
-    }, [politeLevel]);
-
     useEffect(() => {
-        return setMessage([messageGenerator(), messageGenerator()]);
-    }, [politeLevel, messageGenerator]);
+        return setMessage([
+            randomNewDuckDamMessage(politeLevel),
+            randomNewDuckDamMessage(politeLevel),
+        ]);
+    }, [politeLevel]);
 
     return {
         message1,
         message2,
+        politeLevel,
         setPoliteRange,
     };
 };
