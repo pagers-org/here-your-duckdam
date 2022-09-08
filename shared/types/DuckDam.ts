@@ -4,4 +4,8 @@ export type DuckDamObj = {
     third_word: string;
 };
 
+export type DuckDomWithImg = DuckDamObj & {
+    img_url: string;
+};
+
 export type PoliteKey = 0 | 50 | 100;
