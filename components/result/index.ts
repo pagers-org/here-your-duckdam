@@ -1,2 +1,2 @@
 export { default as Card } from './Card';
-export { shareKakaoLink, shareOtherLinks } from './Links';
+export { shareWithKakao, shareWithOthers, shareWithTwitter } from './Links';
