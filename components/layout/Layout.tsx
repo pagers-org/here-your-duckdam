@@ -53,9 +53,12 @@ const Layout = ({ children }: LayoutProps) => {
 export default Layout;
 
 const Wrapper = styled.div`
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
+    margin-bottom: 5rem;
     margin: auto;
     max-width: 480px;
     width: 100%;
