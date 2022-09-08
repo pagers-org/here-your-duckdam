@@ -4,7 +4,9 @@ type shareKakaoType = {
     imageURL: string;
 };
 
-export const shareKakaoLink = ({ imageURL }: shareKakaoType) => {
+export const shareKakaoLink = ({
+    imageURL = 'https://firebasestorage.googleapis.com/v0/b/here-your-duckdam.appspot.com/o/images%2Fopen%20graph%20%E1%84%90%E1%85%A6%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3.png?alt=media&token=d6298a74-b548-4a1a-89bb-8362f95a2092',
+}: shareKakaoType) => {
     const { Kakao } = window;
 
     Kakao.Share.sendDefault({
