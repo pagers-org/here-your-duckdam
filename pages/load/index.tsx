@@ -25,7 +25,7 @@ const Load = () => {
             const id = await response.json();
 
             setTimeout(() => {
-                router.push(`/secret/?result=${id}`);
+                router.push(`/result/?result=${id}`);
             }, 3000);
         },
         [router]
