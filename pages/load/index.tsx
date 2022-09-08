@@ -1,8 +1,8 @@
 import { Logo, Title } from '@components/common';
+import type { PoliteKey } from '@shared/types/DuckDam';
+import { randomNewDuckDam } from '@shared/utils/duckdamGenerator';
 import { useRouter } from 'next/router';
 import React, { useCallback, useEffect } from 'react';
-import type { PoliteKey } from 'shared/types/DuckDam';
-import { randomNewDuckDam } from 'shared/utils/duckdamGenerator';
 
 const Load = () => {
     const router = useRouter();
@@ -25,7 +25,7 @@ const Load = () => {
             const id = await response.json();
 
             setTimeout(() => {
-                router.push(`/secret/?result${id}`);
+                router.push(`/secret/?result=${id}`);
             }, 3000);
         },
         [router]
