@@ -5,15 +5,15 @@ import { theme } from '@styles/index';
 import Image from 'next/image';
 import loadingGif from 'public/images/loading-done.gif';
 
-const LodingImageSize = 188;
+const LoadingImageSize = 188;
 const Result = () => {
     return (
         <>
             <Wrapper>
                 <Image
                     src={loadingGif}
-                    width={LodingImageSize}
-                    height={LodingImageSize}
+                    width={LoadingImageSize}
+                    height={LoadingImageSize}
                     alt="로딩 완료 이미지"
                 />
 
