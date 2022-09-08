@@ -9,7 +9,7 @@ import useAttitudeHooks from 'hooks/useAttitudeHooks';
 import { useRouter } from 'next/router';
 
 const Attitude = () => {
-    const { message1, message2, politeLevel, setPoliteRange } =
+    const { message1, message2, askMessage, politeLevel, setPoliteRange } =
         useAttitudeHooks();
     const router = useRouter();
 
@@ -23,7 +23,7 @@ const Attitude = () => {
             <MessageBox>
                 <MessageItem>{message1}</MessageItem>
                 <MessageItem>{message2}</MessageItem>
-                <MessageItem>...?</MessageItem>
+                <MessageItem type="guest">{askMessage}</MessageItem>
             </MessageBox>
             <AttitudeRange
                 initialValue={50}
