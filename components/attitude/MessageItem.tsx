@@ -9,10 +9,26 @@ type ItemProps = {
 };
 
 const MessageItem = ({ type = 'default', children }: ItemProps) => {
-    return <Wrapper type={type}> {children}</Wrapper>;
+    return (
+        <TransitionBox keyframe={'fadeIn'}>
+            <Wrapper type={type}> {children}</Wrapper>
+        </TransitionBox>
+    );
 };
 
 export default MessageItem;
+
+const TransitionBox = styled.div<{
+    keyframe: KeyframeKey;
+}>`
+    border-radius: 12px;
+    animation: ${({ keyframe }) =>
+        css`
+            ${Keyframe[keyframe]};
+            animation-delay: 1.5s;
+            animation-duration: 1s;
+        `};
+`;
 
 const Wrapper = styled.div<{ type: string }>`
     position: relative;
@@ -31,7 +47,7 @@ const Wrapper = styled.div<{ type: string }>`
         height: 0;
         border: 20px solid transparent;
         border-left-color: ${({ theme, type }) =>
-        type === 'guest' ? theme.color.white : theme.color.orange};
+            type === 'guest' ? theme.color.white : theme.color.orange};
         border-right: 0;
         border-bottom: 0;
         margin-top: -10px;
