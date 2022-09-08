@@ -1,6 +1,6 @@
+import { PoliteKey } from '@shared/types/DuckDam';
+import { randomNewDuckDamMessage } from '@shared/utils/duckdamGenerator';
 import { useEffect, useMemo, useState } from 'react';
-import { randomNewDuckDamMessage } from 'shared/utils/duckdamGenerator';
-
 const useAttitudeHooks = () => {
     const [politeRange, setPoliteRange] = useState<number>(50);
     const [[message1, message2], setMessage] = useState<string[]>([
@@ -12,7 +12,7 @@ const useAttitudeHooks = () => {
         []
     );
 
-    const politeLevel = useMemo(() => {
+    const politeLevel = useMemo((): PoliteKey => {
         if (politeRange > 0 && politeRange < 30) {
             return 0;
         }
@@ -20,7 +20,7 @@ const useAttitudeHooks = () => {
             return 50;
         }
         if (politeRange > 66 && politeRange <= 100) {
-            return 50;
+            return 100;
         }
         return 100;
     }, [politeRange]);
