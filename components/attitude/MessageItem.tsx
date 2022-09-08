@@ -1,4 +1,6 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import { Keyframe, KeyframeKey } from '@styles/keyframe';
 import React from 'react';
 
 type ItemProps = {
@@ -29,7 +31,7 @@ const Wrapper = styled.div<{ type: string }>`
         height: 0;
         border: 20px solid transparent;
         border-left-color: ${({ theme, type }) =>
-            type === 'guest' ? theme.color.white : theme.color.orange};
+        type === 'guest' ? theme.color.white : theme.color.orange};
         border-right: 0;
         border-bottom: 0;
         margin-top: -10px;
