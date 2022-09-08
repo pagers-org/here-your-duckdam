@@ -12,15 +12,16 @@ import Image from 'next/image';
 
 import loadingGif from 'public/images/loading-done.gif';
 
+const LodingImageSize = 188;
 const Secret = () => {
     return (
         <>
             <Wrapper>
                 <Image
                     src={loadingGif}
-                    width={process.env.NEXT_PUBLIC_LOADING_IMG_LENGTH}
-                    height={process.env.NEXT_PUBLIC_LOADING_IMG_LENGTH}
-                    alt="이미지를 불러올 수 없습니다"
+                    width={LodingImageSize}
+                    height={LodingImageSize}
+                    alt="로딩 완료 이미지"
                 />
 
                 <MessageBox>
