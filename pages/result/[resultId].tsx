@@ -1,5 +1,9 @@
 import { Button, Description, MessageBox, Title } from '@components/common';
-import { shareKakaoLink, shareOtherLinks } from '@components/result';
+import {
+    shareWithKakao,
+    shareWithOthers,
+    shareWithTwitter,
+} from '@components/result';
 import styled from '@emotion/styled';
 import { DuckDomWithImg } from '@shared/types/DuckDam';
 import { theme } from '@styles/index';
@@ -51,7 +55,7 @@ const Result = () => {
                             const props = {
                                 imageURL: duckdam.img_url,
                             };
-                            shareKakaoLink(props);
+                            shareWithKakao(props);
                         }
                     }}
                     backgroundColor={theme.color.orange}
@@ -60,7 +64,8 @@ const Result = () => {
                 </Button>
                 <Button
                     onClick={() => {
-                        shareOtherLinks();
+                        //TODO 추후 웹사이트 링크로 변경 예정
+                        shareWithTwitter('https://www.github.com/');
                     }}
                     backgroundColor={theme.color.orange}
                 >
