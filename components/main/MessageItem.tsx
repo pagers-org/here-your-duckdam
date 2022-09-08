@@ -1,11 +1,29 @@
+import { css } from '@emotion/react';
 import styled from '@emotion/styled';
+import { Keyframe, KeyframeKey } from '@styles/keyframe';
 import React from 'react';
 
 const MessageItem = (props: { children: React.ReactNode }) => {
-    return <Wrapper className="fadeInRight">{props.children}</Wrapper>;
+    return (
+        <TransitionBox keyframe="fadeIn">
+            <Wrapper>{props.children}</Wrapper>
+        </TransitionBox>
+    );
 };
 
 export default MessageItem;
+
+const TransitionBox = styled.div<{
+    keyframe: KeyframeKey;
+}>`
+    border-radius: 12px;
+    animation: ${({ keyframe }) =>
+        css`
+            ${Keyframe[keyframe]};
+            animation-delay: 1.5s;
+            animation-duration: 1s;
+        `};
+`;
 
 const Wrapper = styled.div`
     position: relative;

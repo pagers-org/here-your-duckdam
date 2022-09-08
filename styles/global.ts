@@ -1,14 +1,12 @@
 import { css } from '@emotion/react';
-import theme from './theme';
+
 import reset from './reset';
-import animation from './animation';
+import theme from './theme';
 
 const global = css`
     ${reset}
-    ${animation}
 
-
-  html {
+    html {
         font-size: 16px;
     }
 
