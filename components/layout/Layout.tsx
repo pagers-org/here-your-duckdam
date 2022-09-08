@@ -15,7 +15,9 @@ const Layout = ({ children }: LayoutProps) => {
             if (Kakao) {
                 Kakao.init(process.env.NEXT_PUBLIC_KAKAO_API_KEY);
             }
-        } catch (e) {}
+        } catch (error) {
+            console.error(error);
+        }
     }, []);
 
     return (
