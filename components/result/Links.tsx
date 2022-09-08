@@ -1,6 +1,4 @@
-import styled from '@emotion/styled';
 import { KakaoSDK } from 'global';
-import React from 'react';
 
 type shareKakaoType = {
     imageURL: string;

@@ -2,7 +2,7 @@ import { Button, MessageBox, Title } from '@components/common';
 import { Card } from '@components/result';
 import styled from '@emotion/styled';
 import Head from 'next/head';
-import Router, { useRouter } from 'next/router';
+import Router from 'next/router';
 
 type ResultProps = {
     data: DuckdamType;
@@ -16,8 +16,6 @@ type DuckdamType = {
 
 const ResultDetail = ({ data }: ResultProps) => {
     const { img_url, first_word, second_word, third_word } = data;
-    const router = useRouter();
-    const { resultId } = router.query;
 
     return (
         <>
