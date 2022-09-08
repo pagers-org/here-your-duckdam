@@ -9,7 +9,13 @@ export const color = {
     brown: '#6B584B',
 } as const;
 
-interface ThemeMode {
+export const shadow = {
+    layout: `rgba(149, 157, 165, 0.2) 0px 8px 24px`,
+    range: `0 0 5px rgba(0, 0, 0, 0.4)`,
+    ball: `0 0 5px rgba(0, 0, 0, 0.4)`,
+} as const;
+
+export interface ThemeMode {
     bg: {
         primary: string;
         button: string;
@@ -52,6 +58,7 @@ export const theme = {
     color,
     light,
     dark,
+    shadow,
 };
 
 export default theme;
