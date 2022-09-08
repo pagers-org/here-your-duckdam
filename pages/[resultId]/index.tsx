@@ -9,7 +9,7 @@ const Result = () => {
         <>
             <Wrapper>
                 <Title>내 진짜 마음은...</Title>
-                <MessageBox padding="5rem">
+                <MessageBox>
                     <MessageItem>1</MessageItem>
                     <MessageItem>2</MessageItem>
                     <MessageItem>3</MessageItem>
