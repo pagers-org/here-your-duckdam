@@ -39,7 +39,21 @@ const StyledRange = styled.div`
     label {
         display: flex;
         width: 100%;
+        font-size: 2rem;
         justify-content: space-between;
+        padding-bottom: 0.4rem;
+        & span:nth-of-type(1) {
+            position: relative;
+            left: -1rem;
+        }
+        & span:nth-of-type(2) {
+            position: relative;
+            right: -1rem;
+        }
+        & span:nth-of-type(3) {
+            position: relative;
+            right: -1rem;
+        }
     }
 
     input[type='range'] {
@@ -60,8 +74,9 @@ const StyledRange = styled.div`
         box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
     }
 
+    /* Chrome & Safari  */
     input[type='range']::-webkit-slider-runnable-track {
-        background: #087f5b;
+        background: ${({ theme }) => theme.color.darkGray};
         border-radius: 4px;
         width: 100%;
         height: 10px;
@@ -70,16 +85,17 @@ const StyledRange = styled.div`
 
     input[type='range']::-webkit-slider-thumb {
         -webkit-appearance: none;
-        height: 24px;
-        width: 24px;
-        background: #fff;
+        height: 3rem;
+        width: 3rem;
         border-radius: 50%;
-        border: 1px solid #087f5b;
-        margin-top: -7px;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        background: #fff;
+        margin-top: -1.2rem;
     }
 
+    /* Firefox */
     input[type='range']::-moz-range-track {
-        background: #087f5b;
+        background: ${({ theme }) => theme.color.darkGray};
         border-radius: 4px;
         width: 100%;
         height: 10px;
@@ -88,16 +104,17 @@ const StyledRange = styled.div`
 
     input[type='range']::-moz-range-thumb {
         -webkit-appearance: none;
-        height: 24px;
-        width: 24px;
+        height: 3rem;
+        width: 3rem;
         background: #fff;
         border-radius: 50%;
-        border: 1px solid #087f5b;
-        margin-top: -7px;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        margin-top: -1.2rem;
     }
 
+    /* IE */
     input[type='range']::-ms-track {
-        background: #087f5b;
+        background: ${({ theme }) => theme.color.darkGray};
         border-radius: 4px;
         width: 100%;
         height: 10px;
@@ -106,15 +123,11 @@ const StyledRange = styled.div`
 
     input[type='range']::-ms-thumb {
         -webkit-appearance: none;
-        height: 24px;
-        width: 24px;
+        height: 3rem;
+        width: 3rem;
         background: #fff;
         border-radius: 50%;
-        border: 1px solid #087f5b;
-        margin-top: -7px;
-    }
-
-    label {
-        font-size: 2rem;
+        box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+        margin-top: -1.2rem;
     }
 `;

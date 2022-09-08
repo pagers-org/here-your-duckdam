@@ -9,17 +9,16 @@ export const color = {
     brown: '#6B584B',
 } as const;
 
-interface ThemeMode {
-    bg: {
-        primary: string;
-        button: string;
-        message: string;
-    };
-    text: {
-        primary: string;
-        link: string;
-        button: string;
-    };
+export const shadow = {
+    layout: `rgba(149, 157, 165, 0.2) 0px 8px 24px`,
+    range: `0 0 5px rgba(0, 0, 0, 0.4)`,
+    ball: `0 0 5px rgba(0, 0, 0, 0.4)`,
+} as const;
+
+type ThemeTypes = 'primary' | 'button' | 'message' | 'link';
+export interface ThemeMode {
+    bg: Partial<Record<ThemeTypes, string>>;
+    text: Partial<Record<ThemeTypes, string>>;
 }
 
 export const light: ThemeMode = {
@@ -52,6 +51,7 @@ export const theme = {
     color,
     light,
     dark,
+    shadow,
 };
 
 export default theme;

@@ -8,8 +8,8 @@ const MessageBox = (props: { children: React.ReactNode }) => {
 export default MessageBox;
 
 const Wrapper = styled.section`
-    height: 50%;
     width: 100%;
+    height: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;

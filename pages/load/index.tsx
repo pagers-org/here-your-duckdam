@@ -54,7 +54,7 @@ const Load = () => {
 
     return (
         <>
-            <Logo />
+            <Logo keyframe="pulse" />
             <Title>토끼가 덕담 고르는 중</Title>
         </>
     );
