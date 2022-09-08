@@ -1,18 +1,12 @@
-import {
-    Button,
-    Description,
-    MessageBox,
-    shareKakaoLink,
-    shareOtherLinks,
-    Title,
-} from '@components/secret';
+import { Button, Description, MessageBox, Title } from '@components/common';
+import { shareKakaoLink, shareOtherLinks } from '@components/result';
 import styled from '@emotion/styled';
 import { theme } from '@styles/index';
 import Image from 'next/image';
 import loadingGif from 'public/images/loading-done.gif';
 
 const LodingImageSize = 188;
-const Secret = () => {
+const Result = () => {
     return (
         <>
             <Wrapper>
@@ -60,7 +54,7 @@ const Secret = () => {
     );
 };
 
-export default Secret;
+export default Result;
 
 const Wrapper = styled.div`
     width: 100%;
