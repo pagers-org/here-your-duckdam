@@ -1,8 +1,7 @@
 import styled from '@emotion/styled';
-import Head from 'next/head';
-import React from 'react';
-import { useEffect } from 'react';
 import { KakaoSDK } from 'global';
+import Head from 'next/head';
+import React, { useEffect } from 'react';
 
 type LayoutProps = {
     children: React.ReactNode;

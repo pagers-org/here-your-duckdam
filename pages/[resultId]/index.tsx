@@ -1,6 +1,6 @@
-import styled from '@emotion/styled';
-import { Button, Title, MessageBox } from '@components/common';
 import { MessageItem } from '@components/[resultId]';
+import { Button, MessageBox, Title } from '@components/common';
+import styled from '@emotion/styled';
 import Router, { useRouter } from 'next/router';
 
 const Result = () => {

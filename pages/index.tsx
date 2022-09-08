@@ -1,3 +1,4 @@
+import { Button } from '@components/common';
 import {
     AttitudeRange,
     AttitudeTitle,
@@ -5,7 +6,6 @@ import {
     MessageItem,
     SplashRabbit,
 } from '@components/main';
-import { Button } from '@components/common';
 import Router from 'next/router';
 
 const Main = () => {
