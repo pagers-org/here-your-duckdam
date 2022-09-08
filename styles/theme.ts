@@ -15,17 +15,10 @@ export const shadow = {
     ball: `0 0 5px rgba(0, 0, 0, 0.4)`,
 } as const;
 
+type ThemeTypes = 'primary' | 'button' | 'message' | 'link';
 export interface ThemeMode {
-    bg: {
-        primary: string;
-        button: string;
-        message: string;
-    };
-    text: {
-        primary: string;
-        link: string;
-        button: string;
-    };
+    bg: Partial<Record<ThemeTypes, string>>;
+    text: Partial<Record<ThemeTypes, string>>;
 }
 
 export const light: ThemeMode = {
