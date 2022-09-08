@@ -1,12 +1,17 @@
 import styled from '@emotion/styled';
 import Head from 'next/head';
 import React from 'react';
+import { useEffect } from 'react';
 
 type LayoutProps = {
     children: React.ReactNode;
 };
 
 const Layout = ({ children }: LayoutProps) => {
+    useEffect(() => {
+        window.Kakao.init(process.env.NEXT_PUBLIC_KAKAO_API_KEY);
+    }, []);
+
     return (
         <>
             <Head>

@@ -1,6 +1,7 @@
 import {
     Button,
     Description,
+    shareKakaoLink,
     shareOtherLinks,
     MessageBox,
     Title,
@@ -33,7 +34,12 @@ const Secret = () => {
                 <Button>링크 복사하기</Button>
             </Wrapper>
             <ShareWrapper>
-                <Button backgroundColor={theme.color.orange}>
+                <Button
+                    onClick={() => {
+                        shareKakaoLink();
+                    }}
+                    backgroundColor={theme.color.orange}
+                >
                     카톡 공유하기
                 </Button>
                 <Button
