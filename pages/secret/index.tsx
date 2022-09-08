@@ -18,8 +18,8 @@ const Secret = () => {
             <Wrapper>
                 <Image
                     src={loadingGif}
-                    width="188"
-                    height="188"
+                    width={process.env.NEXT_PUBLIC_LOADING_IMG_LENGTH}
+                    height={process.env.NEXT_PUBLIC_LOADING_IMG_LENGTH}
                     alt="이미지를 불러올 수 없습니다"
                 />
 

@@ -14,8 +14,8 @@ export const shareKakaoLink = ({ imageURL }: shareKakaoType) => {
         content: {
             title: '비밀 덕담이 도착했습니다!',
             description: '여기를 눌러 덕담을 확인하세요 💌',
-            imageWidth: 800,
-            imageHeight: 420,
+            imageWidth: process.env.NEXT_PUBLIC_OG_IMG_WIDTH,
+            imageHeight: process.env.NEXT_PUBLIC_OG_IMG_HEIGHT,
             imageUrl: imageURL,
             link: {
                 webUrl: process.env.NEXT_PUBLIC_SITE_URL,
