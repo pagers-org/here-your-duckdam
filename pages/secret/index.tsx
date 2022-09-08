@@ -2,23 +2,25 @@ import {
     Button,
     Description,
     MessageBox,
-    shareOnOthers,
+    shareKakaoLink,
+    shareOtherLinks,
     Title,
 } from '@components/secret';
 import styled from '@emotion/styled';
-import { theme } from '@styles';
+import { theme } from '@styles/index';
 import Image from 'next/image';
 import loadingGif from 'public/images/loading-done.gif';
 
+const LodingImageSize = 188;
 const Secret = () => {
     return (
         <>
             <Wrapper>
                 <Image
                     src={loadingGif}
-                    width="188"
-                    height="188"
-                    alt="이미지를 불러올 수 없습니다"
+                    width={LodingImageSize}
+                    height={LodingImageSize}
+                    alt="로딩 완료 이미지"
                 />
 
                 <MessageBox>
@@ -32,12 +34,22 @@ const Secret = () => {
                 <Button>링크 복사하기</Button>
             </Wrapper>
             <ShareWrapper>
-                <Button backgroundColor={theme.color.orange}>
+                <Button
+                    onClick={() => {
+                        //TODO: imageURL 변경 필요
+                        const props = {
+                            imageURL:
+                                'https://firebasestorage.googleapis.com/v0/b/here-your-duckdam.appspot.com/o/images%2Fopen%20graph%20%E1%84%90%E1%85%A6%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3.png?alt=media&token=d6298a74-b548-4a1a-89bb-8362f95a2092',
+                        };
+                        shareKakaoLink(props);
+                    }}
+                    backgroundColor={theme.color.orange}
+                >
                     카톡 공유하기
                 </Button>
                 <Button
                     onClick={() => {
-                        shareOnOthers();
+                        shareOtherLinks();
                     }}
                     backgroundColor={theme.color.orange}
                 >
