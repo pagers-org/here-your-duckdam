@@ -75,7 +75,6 @@ export async function getServerSideProps(context: {
         `${process.env.NEXT_PUBLIC_SITE_URL}/api/duckdam/${params.resultId}`
     );
     const data = await res.json();
-    console.log(data);
 
     return {
         props: { data }, // will be passed to the page component as props
