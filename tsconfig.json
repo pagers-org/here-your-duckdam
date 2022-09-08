@@ -5,6 +5,7 @@
             "@pages/*": ["pages/*"],
             "@components/*": ["components/*"],
             "@styles/*": ["styles/*"],
+            "@shared/*": ["shared/*"],
             "types": ["@emotion/react"]
         },
         "target": "es5",
