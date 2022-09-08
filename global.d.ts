@@ -4,6 +4,4 @@ declare global {
     }
 }
 
-window.Kakao = window.KaKao || {};
-
-export const kakao = Window.Kakao;
+export const KakaoSDK = Window.Kakao;
