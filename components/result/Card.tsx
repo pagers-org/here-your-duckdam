@@ -3,13 +3,13 @@ import styled from '@emotion/styled';
 type Item = {
     children: React.ReactNode;
 };
-const MessageItem = ({ children }: Item) => {
-    return <StyledMessageItem>{children}</StyledMessageItem>;
+const Card = ({ children }: Item) => {
+    return <StyledCard>{children}</StyledCard>;
 };
 
-export default MessageItem;
+export default Card;
 
-const StyledMessageItem = styled.div`
+const StyledCard = styled.div`
     width: 100%;
     min-height: 140px;
     margin: 20px 0px;
