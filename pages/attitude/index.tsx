@@ -1,10 +1,10 @@
-import { Button } from '@components/common';
 import {
     AttitudeRange,
     AttitudeTitle,
     MessageBox,
     MessageItem,
-} from '@components/main';
+} from '@components/attitude';
+import { Button } from '@components/common';
 import useAttitudeHooks from 'hooks/useAttitudeHooks';
 import { useRouter } from 'next/router';
 

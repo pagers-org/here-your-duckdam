@@ -1,6 +1,6 @@
-import { word_0, word_1, word_2 } from '@shared/constant/CardMessage';
-import type { DuckDamObj, PoliteKey } from '@shared/types/DuckDam';
-import { randomNumber } from '@shared/utils/randomNumber';
+import { word_0, word_1, word_2 } from 'shared/constant/CardMessage';
+import type { DuckDamObj, PoliteKey } from 'shared/types/DuckDam';
+import { randomNumber } from 'shared/utils/randomNumber';
 
 export const randomNewDuckDam = (politeLevel: PoliteKey): DuckDamObj => {
     return {
