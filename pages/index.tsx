@@ -1,5 +1,6 @@
 import { Button, Logo } from '@components/common';
 import { Bottom } from '@components/layout';
+import theme from '@styles/theme';
 import Link from 'next/link';
 
 const Main = () => {
@@ -8,7 +9,12 @@ const Main = () => {
             <Logo />
             <Bottom>
                 <Link href="/attitude">
-                    <Button>덕담 만들러 가자!</Button>
+                    <Button
+                        color={theme.light.text.button}
+                        backgroundColor={theme.light.bg.button}
+                    >
+                        덕담 만들러 가자!
+                    </Button>
                 </Link>
             </Bottom>
         </>

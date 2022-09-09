@@ -1,23 +1,18 @@
 import styled from '@emotion/styled';
 import React from 'react';
-import { color } from 'styles/theme';
+// import { color } from 'styles/theme';
 
 type ButtonType = {
     children: React.ReactNode;
     onClick?: () => void;
-    backgroundColor?: typeof color[keyof typeof color];
+    color?: string;
+    backgroundColor?: string;
 };
 
-const Button = ({
-    children,
-    onClick,
-    backgroundColor = color.buttonYellow,
-}: ButtonType) => {
+const Button = ({ children, ...otherProps }: ButtonType) => {
     return (
         <Wrapper>
-            <StyledButton onClick={onClick} backgroundColor={backgroundColor}>
-                {children}
-            </StyledButton>
+            <StyledButton {...otherProps}>{children}</StyledButton>
         </Wrapper>
     );
 };
@@ -27,21 +22,16 @@ export default Button;
 const Wrapper = styled.div`
     width: 100%;
     padding: 9px 0;
+    text-align: center;
 `;
 
 const StyledButton = styled.button<ButtonType>`
     width: 90%;
+    color: ${(props) => props.color};
     background-color: ${(props) => props.backgroundColor};
-    border: none;
     border-radius: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-weight: bold;
     font-size: 1em;
-    padding: 16px;
-    position: relative;
-    right: 0;
-    left: 0;
-    margin: 0 auto;
+    height: 60px;
+    margin: auto;
 `;
