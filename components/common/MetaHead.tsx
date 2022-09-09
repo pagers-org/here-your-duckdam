@@ -12,13 +12,17 @@ const MetaHead = ({
     tabTitle = '여기 덕담이요!',
     title = '여기 덕담이요!',
     description = '가족, 친구들에게 따뜻한 한마디를 선물해보세요!',
-    img_url = process.env.NEXT_PUBLIC_DEFAULT_OG_IMAGE,
+    img_url,
 }: OptionalMetaHeadProps) => {
+    if (!img_url) {
+        img_url = process.env.NEXT_PUBLIC_DEFAULT_OG_IMAGE;
+    }
     return (
         <Head>
             <title>{tabTitle}</title>
             <meta name="description" content={description} />
             <link rel="icon" href="/favicon.ico" />
+            {/* default og */}
             <meta property="og:type" content="website" />
             <meta property="og:image" content={img_url} />
             <meta property="og:image:width" content="1200" />
@@ -29,10 +33,13 @@ const MetaHead = ({
             />
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />
-            <meta name="twitter:card" content="summary" />
+            {/* twitter og */}
             <meta name="twitter:title" content={title} />
-            <meta name="twitter:description" content={description} />
             <meta name="twitter:image" content={img_url} />
+            <meta name="twitter:card" content={description} />
+            <meta name="twitter:creator" content={'@duckdam trio'} />
+            <meta name="twitter:site" content={'@duckdam trio'} />/
+            <meta name="twitter:description" content={description} />
         </Head>
     );
 };
