@@ -21,7 +21,6 @@ const Layout = ({ children }: LayoutProps) => {
 
     return (
         <>
-            <MetaHead />
             <Wrapper>{children}</Wrapper>
         </>
     );

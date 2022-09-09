@@ -1,4 +1,5 @@
 import { Button, Description, MessageBox, Title } from '@components/common';
+import MetaHead from '@components/common/MetaHead';
 import { Bottom } from '@components/layout';
 import {
     LinkCopyButton,
@@ -31,6 +32,7 @@ const Result = () => {
 
     return (
         <>
+            <MetaHead />
             <Wrapper>
                 <Image src={loadingGif} alt="로딩 완료 이미지" />
 

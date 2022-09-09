@@ -1,4 +1,5 @@
 import { Button, Description, EmojiTitle, Title } from '@components/common';
+import MetaHead from '@components/common/MetaHead';
 import { Bottom } from '@components/layout';
 import theme from '@styles/theme';
 import Link from 'next/link';
@@ -6,6 +7,7 @@ import Link from 'next/link';
 const Custom500 = () => {
     return (
         <>
+            <MetaHead />
             <EmojiTitle>😢</EmojiTitle>
             <Title>엇! 토끼와의 연결이 끊긴 것 같아요!</Title>
             <Description>잠시 후에 다시 이용해주세요🙇‍♀️</Description>
