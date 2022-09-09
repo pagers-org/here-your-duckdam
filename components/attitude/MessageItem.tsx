@@ -35,9 +35,10 @@ const Wrapper = styled.div<{ type: string; direction?: DirectionTypes }>`
     background-color: ${({ theme, type }) =>
         type === 'guest' ? theme.color.white : theme.color.orange};
     border-radius: 2rem;
-    padding: 1.3rem;
+    padding: 1rem;
     margin: 0.3rem;
     color: ${({ theme }) => theme.color.black};
+
     :after {
         content: '';
         position: absolute;

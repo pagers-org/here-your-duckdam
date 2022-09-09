@@ -32,6 +32,7 @@ export default AttitudeRange;
 
 const StyledRange = styled.div`
     display: flex;
+    margin-top: 30px;
     justify-content: center;
     flex-direction: column;
     align-items: center;
@@ -39,7 +40,7 @@ const StyledRange = styled.div`
     label {
         display: flex;
         width: 100%;
-        font-size: 2rem;
+        font-size: 1.3rem;
         justify-content: space-between;
         padding-bottom: 0.4rem;
         & span:nth-of-type(1) {
@@ -48,7 +49,7 @@ const StyledRange = styled.div`
         }
         & span:nth-of-type(2) {
             position: relative;
-            right: -1rem;
+            right: -0.8rem;
         }
         & span:nth-of-type(3) {
             position: relative;
