@@ -26,7 +26,7 @@ const MetaHead = ({
             <meta property="og:type" content="website" />
             <meta property="og:image" content={img_url} />
             <meta property="og:image:width" content="1200" />
-            <meta property="og:image:height" content="630" />
+            <meta property="og:image:height" content="600" />
             <meta
                 property="og:url"
                 content={process.env.NEXT_PUBLIC_SITE_URL}
@@ -34,12 +34,10 @@ const MetaHead = ({
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />
             {/* twitter og */}
+            <meta name="twitter:card" content="summary_large_image" />
             <meta name="twitter:title" content={title} />
-            <meta name="twitter:image" content={img_url} />
-            <meta name="twitter:card" content={description} />
-            <meta name="twitter:creator" content={'@duckdam trio'} />
-            <meta name="twitter:site" content={'@duckdam trio'} />/
             <meta name="twitter:description" content={description} />
+            <meta name="twitter:image" content={img_url} />
         </Head>
     );
 };
