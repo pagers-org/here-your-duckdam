@@ -23,10 +23,11 @@ const Load = () => {
             });
 
             const id = await response.json();
-
-            setTimeout(() => {
-                router.push(`/result/${id}`);
-            }, 3000);
+            if (response.ok) {
+                setTimeout(() => {
+                    router.push(`/result/${id}`);
+                }, 3000);
+            }
         },
         [router]
     );
@@ -42,12 +43,6 @@ const Load = () => {
 
         if (hasPoliteLevel(politeLevel)) {
             addNewDuckDamHandler(politeLevel);
-            return;
-        }
-
-        if (!hasPoliteLevel(politeLevel)) {
-            alert('예의도가 선택되지 않았어요!');
-            router.push('/');
             return;
         }
     }, [router.query.politeLevel, router, addNewDuckDamHandler]);
