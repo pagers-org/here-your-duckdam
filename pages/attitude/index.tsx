@@ -1,6 +1,7 @@
 import { AttitudeRange, MessageBox, MessageItem } from '@components/attitude';
 import { Button, Title } from '@components/common';
 import { Bottom } from '@components/layout';
+import theme from '@styles/theme';
 import useAttitudeHooks from 'hooks/useAttitudeHooks';
 import { useRouter } from 'next/router';
 
@@ -26,7 +27,11 @@ const Attitude = () => {
                 handleRange={(range) => setPoliteRange(range)}
             />
             <Bottom>
-                <Button onClick={addNewDuckDamHandler}>
+                <Button
+                    onClick={addNewDuckDamHandler}
+                    color={theme.light.text.button}
+                    backgroundColor={theme.light.bg.button}
+                >
                     예절 수치 정했어!
                 </Button>
             </Bottom>

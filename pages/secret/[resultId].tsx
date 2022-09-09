@@ -1,7 +1,9 @@
 import { Button, MessageBox, Title } from '@components/common';
 import MetaHead from '@components/common/MetaHead';
+import { Bottom } from '@components/layout';
 import { Card } from '@components/result';
 import styled from '@emotion/styled';
+import { theme } from '@styles/index';
 import Router from 'next/router';
 
 type ResultProps = {
@@ -32,13 +34,17 @@ const ResultDetail = ({ data }: ResultProps) => {
                     <Card>{second_word}</Card>
                     <Card>{third_word}</Card>
                 </MessageBox>
-                <Button
-                    onClick={() => {
-                        Router.push('/');
-                    }}
-                >
-                    나도 덕담 나눌래!
-                </Button>
+                <Bottom>
+                    <Button
+                        onClick={() => {
+                            Router.push('/');
+                        }}
+                        color={theme.light.text.button}
+                        backgroundColor={theme.light.bg.button}
+                    >
+                        나도 덕담 나눌래!
+                    </Button>
+                </Bottom>
             </Wrapper>
         </>
     );

@@ -1,4 +1,5 @@
 import { Button, Description, MessageBox, Title } from '@components/common';
+import { Bottom } from '@components/layout';
 import {
     LinkCopyButton,
     shareWithKakao,
@@ -14,7 +15,7 @@ import { useEffect, useRef, useState } from 'react';
 
 const Result = () => {
     const router = useRouter();
-    const { resultId } = router.query;
+    const resultId = router.query.resultId as string;
     const resultURL = process.env.NEXT_PUBLIC_SITE_URL + 'secret/' + resultId;
     const urlArea = useRef(null);
     const [duckdam, setDuckdam] = useState<DuckDomWithImg>();
@@ -56,18 +57,18 @@ const Result = () => {
                     {resultURL}
                 </LinkCopyButton>
             </Wrapper>
-            <ShareWrapper>
+            <Bottom>
                 <Button
                     onClick={() => {
-                        if (duckdam) {
-                            const props = {
-                                imageURL: duckdam.img_url,
-                                resultId: resultId,
-                            };
-                            shareWithKakao(props);
-                        }
+                        if (!duckdam) return;
+                        const props = {
+                            imageURL: duckdam.img_url,
+                            resultURL,
+                        };
+                        shareWithKakao(props);
                     }}
-                    backgroundColor={theme.color.orange}
+                    color={theme.light.text.button}
+                    backgroundColor={theme.light.bg.button}
                 >
                     카톡 공유하기
                 </Button>
@@ -75,11 +76,12 @@ const Result = () => {
                     onClick={() => {
                         shareWithTwitter(resultURL);
                     }}
-                    backgroundColor={theme.color.orange}
+                    color={theme.light.text.button}
+                    backgroundColor={theme.light.bg.button}
                 >
                     트위터로 공유하기
                 </Button>
-            </ShareWrapper>
+            </Bottom>
         </>
     );
 };
