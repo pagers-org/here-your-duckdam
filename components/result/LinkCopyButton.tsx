@@ -1,19 +1,24 @@
 import styled from '@emotion/styled';
 import Image from 'next/image';
 import copyIcon from 'public/images/copy-icon.svg';
-import React from 'react';
+import React, { useRef } from 'react';
 
 type LinkCopyButtonProps = {
     children: React.ReactNode;
-    ref?: any;
-    onClick?: () => void;
 };
 
 const LinkCopyButton = (props: LinkCopyButtonProps) => {
+    const linkRef = useRef<HTMLSpanElement>(null);
+    const copyToClipboard = async () => {
+        const link = linkRef.current?.innerText as string;
+        await navigator.clipboard.writeText(link);
+        await alert('링크가 복사되었습니다!');
+    };
+
     return (
         <Container>
-            <Result ref={props.ref}>{props.children}</Result>
-            <CopyButton onClick={props.onClick}>
+            <Result ref={linkRef}>{props.children}</Result>
+            <CopyButton onClick={copyToClipboard}>
                 <StyledImage src={copyIcon} />
             </CopyButton>
         </Container>
