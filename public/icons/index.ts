@@ -12,3 +12,5 @@ export { default as star7 } from './star7.svg';
 export { default as moon } from './moon.png';
 
 export { default as loading } from './loading.gif';
+export { default as loadingBg } from './loadingBg.png';
+export { default as loadingBgWithoutCircle } from './loadingBgWithoutCircle.png';
