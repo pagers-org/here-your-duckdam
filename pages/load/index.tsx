@@ -17,6 +17,8 @@ const Load = () => {
                 img_url: getStorageImage(randomImageNumber),
                 ...randomNewDuckDam({ randomImageNumber, politeLevel }),
             };
+
+            console.log(newDuckDam);
             const response = await fetch('/api/duckdam/add', {
                 method: 'POST',
                 body: JSON.stringify(newDuckDam),
