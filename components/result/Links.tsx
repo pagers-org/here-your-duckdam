@@ -1,5 +1,3 @@
-import { KakaoSDK } from 'global';
-
 type shareKakaoType = {
     imageURL: string;
 };

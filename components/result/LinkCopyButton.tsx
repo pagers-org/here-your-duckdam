@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
-import React from 'react';
 import Image from 'next/image';
 import copyIcon from 'public/images/copy-icon.svg';
+import React from 'react';
 
 type LinkCopyButtonProps = {
     children: React.ReactNode;
