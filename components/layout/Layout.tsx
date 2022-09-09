@@ -1,6 +1,5 @@
 import MetaHead from '@components/common/MetaHead';
 import styled from '@emotion/styled';
-import { KakaoSDK } from 'global';
 import React, { useEffect } from 'react';
 
 type LayoutProps = {

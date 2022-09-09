@@ -1,8 +1,8 @@
 import { Button, Description, MessageBox, Title } from '@components/common';
 import {
+    LinkCopyButton,
     shareWithKakao,
     shareWithTwitter,
-    LinkCopyButton,
 } from '@components/result';
 import styled from '@emotion/styled';
 import { DuckDomWithImg } from '@shared/types/DuckDam';
@@ -10,14 +10,14 @@ import { theme } from '@styles/index';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import loadingGif from 'public/icons/duckdam-package.svg';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const Result = () => {
     const router = useRouter();
     const { resultId } = router.query;
     const resultURL =
         process.env.NEXT_PUBLIC_SITE_URL + '/' + 'secret/' + resultId;
-    const urlArea = useRef();
+    const urlArea = useRef(null);
     const [duckdam, setDuckdam] = useState<DuckDomWithImg>();
 
     useEffect(() => {
@@ -27,7 +27,7 @@ const Result = () => {
             setDuckdam(data);
         };
         dataFetch();
-    }, [router.query]);
+    }, [router.query, resultId]);
 
     return (
         <>
@@ -45,7 +45,7 @@ const Result = () => {
                 <LinkCopyButton
                     ref={urlArea}
                     onClick={() => {
-                        let t = document.createElement('textarea');
+                        const t = document.createElement('textarea');
                         document.body.appendChild(t);
                         t.value = resultURL;
                         t.select();
