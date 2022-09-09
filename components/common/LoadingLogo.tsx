@@ -6,23 +6,30 @@ import moon from 'public/icons/moon.png';
 const LoadingLogo = () => {
     return (
         <>
-            <StyledImage>
-                <Image src={loading} alt="selecting card rabbit" />
-                <Image src={moon} alt="orange background" />
-            </StyledImage>
+            <StyledImages>
+                <span>
+                    <Image src={loading} alt="selecting card rabbit" />
+                </span>
+                <span>
+                    <Image src={moon} alt="orange background" />
+                </span>
+            </StyledImages>
         </>
     );
 };
 
-const StyledImage = styled.div`
+const StyledImages = styled.div`
     width: 80%;
-    position: relative;
-    Image:nth-of-type(1) {
-        position: absolute;
+
+    span:nth-of-type(1) {
+        position: relative;
+        z-index: 20;
     }
-    Image:nth-of-type(2) {
-        top: -10rem;
-        position: absolute;
+    span:nth-of-type(2) {
+        z-index: 10;
+        position: relative;
+        top: -12rem;
+        left: 2.4rem;
     }
 `;
 
