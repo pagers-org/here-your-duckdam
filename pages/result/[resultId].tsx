@@ -44,20 +44,7 @@ const Result = () => {
                         덕담은 비밀로 유지됩니다! 🤫
                     </Description>
                 </MessageBox>
-                <LinkCopyButton
-                    ref={urlArea}
-                    onClick={() => {
-                        const t = document.createElement('textarea');
-                        document.body.appendChild(t);
-                        t.value = resultURL;
-                        t.select();
-                        document.execCommand('copy');
-
-                        alert('링크가 복사되었습니다!');
-                    }}
-                >
-                    {resultURL}
-                </LinkCopyButton>
+                <LinkCopyButton>{resultURL}</LinkCopyButton>
             </Wrapper>
             <Bottom>
                 <Button
@@ -105,8 +92,6 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* justify-content: center;
-    align-items: center; */
 `;
 
 const ShareWrapper = styled.div`
