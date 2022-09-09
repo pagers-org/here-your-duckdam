@@ -9,7 +9,7 @@ export default MessageBox;
 
 const Wrapper = styled.section`
     width: 100%;
-    height: 0;
+    height: 50%;
     display: flex;
     flex-direction: column;
     justify-content: center;
