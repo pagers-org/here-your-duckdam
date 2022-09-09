@@ -1,18 +1,14 @@
-import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { Keyframe, KeyframeKey } from '@styles/keyframe';
 import Image from 'next/image';
-import React from 'react';
+import loading from 'public/icons/loading.gif';
+import moon from 'public/icons/moon.png';
 
-import loading from '../../public/icons/loading.gif';
-import moon from '../../public/icons/moon.png';
-
-const LoadingLogo = ({ keyframe }: { keyframe?: KeyframeKey }) => {
+const LoadingLogo = () => {
     return (
         <>
             <StyledImage>
-                <Image src={loading} />
-                {/* <Image src={moon} /> */}
+                <Image src={loading} alt="selecting card rabbit" />
+                <Image src={moon} alt="orange background" />
             </StyledImage>
         </>
     );
@@ -20,8 +16,14 @@ const LoadingLogo = ({ keyframe }: { keyframe?: KeyframeKey }) => {
 
 const StyledImage = styled.div`
     width: 80%;
-    height: 80vh;
     position: relative;
+    Image:nth-of-type(1) {
+        position: absolute;
+    }
+    Image:nth-of-type(2) {
+        top: -10rem;
+        position: absolute;
+    }
 `;
 
 export default LoadingLogo;

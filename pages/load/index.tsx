@@ -1,4 +1,4 @@
-import { Logo, Title } from '@components/common';
+import { LoadingLogo, Title } from '@components/common';
 import type { PoliteKey } from '@shared/types/DuckDam';
 import { randomNewDuckDam } from '@shared/utils/duckdamGenerator';
 import { useRouter } from 'next/router';
@@ -49,7 +49,7 @@ const Load = () => {
 
     return (
         <>
-            <Logo keyframe="pulse" />
+            <LoadingLogo />
             <Title>토끼가 덕담 고르는 중</Title>
         </>
     );
