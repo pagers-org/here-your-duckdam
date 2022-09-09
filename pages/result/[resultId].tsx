@@ -1,7 +1,6 @@
 import { Button, Description, MessageBox, Title } from '@components/common';
 import {
     shareWithKakao,
-    shareWithOthers,
     shareWithTwitter,
     LinkCopyButton,
 } from '@components/result';
@@ -64,6 +63,7 @@ const Result = () => {
                         if (duckdam) {
                             const props = {
                                 imageURL: duckdam.img_url,
+                                resultId: resultId,
                             };
                             shareWithKakao(props);
                         }
