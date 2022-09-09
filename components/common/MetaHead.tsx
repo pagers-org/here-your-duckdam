@@ -33,10 +33,10 @@ const MetaHead = ({
             />
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />
-            {/* twitter Og */}
+            {/* twitter og */}
             <meta name="twitter:title" content={title} />
             <meta name="twitter:image" content={img_url} />
-            <meta name="twitter:card" content="summary" />
+            <meta name="twitter:card" content={description} />
             <meta name="twitter:creator" content={'@duckdam trio'} />
             <meta name="twitter:site" content={'@duckdam trio'} />/
             <meta name="twitter:description" content={description} />
