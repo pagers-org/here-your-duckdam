@@ -34,7 +34,7 @@ export const shareWithKakao = ({
     });
 };
 
-export const shareWithTwitter = (shareURL: string) => {
+export const shareWithTwitter = (shareURL: string | undefined) => {
     window.open(
         `https://twitter.com/intent/tweet?url=${shareURL}&text=${'비밀 덕담이 도착했어요! 바로 확인해보세요🥁'}`
     );

@@ -74,10 +74,7 @@ const Result = () => {
                 </Button>
                 <Button
                     onClick={() => {
-                        //TODO 추후 웹사이트 링크로 변경 예정
-                        shareWithTwitter(
-                            process.env.NEXT_PUBLIC_SITE_URL + '/secret'
-                        );
+                        shareWithTwitter(resultURL);
                     }}
                     backgroundColor={theme.color.orange}
                 >
