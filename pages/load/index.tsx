@@ -6,6 +6,7 @@ import { randomNumber } from '@shared/utils/randomNumber';
 import { useRouter } from 'next/router';
 import React, { useCallback, useEffect } from 'react';
 import { word_0 } from 'shared/constant/CardMessage';
+import styled from '@emotion/styled';
 
 const Load = () => {
     const router = useRouter();
@@ -28,11 +29,11 @@ const Load = () => {
             });
 
             const id = await response.json();
-            if (response.ok) {
-                setTimeout(() => {
-                    router.push(`/result/${id}`);
-                }, 3000);
-            }
+            // if (response.ok) {
+            //     setTimeout(() => {
+            //         router.push(`/result/${id}`);
+            //     }, 3000);
+            // }
         },
         [router]
     );
@@ -55,9 +56,20 @@ const Load = () => {
     return (
         <>
             <LoadingLogo />
-            <Title>토끼가 덕담 고르는 중</Title>
+            <Wrapper>
+                <span>
+                    <Title>토끼가 덕담 고르는 중</Title>
+                </span>
+            </Wrapper>
         </>
     );
 };
 
 export default Load;
+
+const Wrapper = styled.div`
+    span:nth-child(1) {
+        position: relative;
+        top: s0px;
+    }
+`;
