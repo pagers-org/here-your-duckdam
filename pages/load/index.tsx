@@ -1,4 +1,5 @@
 import { Logo, Title } from '@components/common';
+import MetaHead from '@components/common/MetaHead';
 import type { PoliteKey } from '@shared/types/DuckDam';
 import { randomNewDuckDam } from '@shared/utils/duckdamGenerator';
 import { getStorageImage } from '@shared/utils/getStorageImage';
@@ -17,6 +18,8 @@ const Load = () => {
                 img_url: getStorageImage(randomImageNumber),
                 ...randomNewDuckDam({ randomImageNumber, politeLevel }),
             };
+
+            console.log(newDuckDam);
             const response = await fetch('/api/duckdam/add', {
                 method: 'POST',
                 body: JSON.stringify(newDuckDam),
@@ -52,6 +55,7 @@ const Load = () => {
 
     return (
         <>
+            <MetaHead />
             <Logo keyframe="pulse" />
             <Title>토끼가 덕담 고르는 중</Title>
         </>

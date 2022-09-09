@@ -1,4 +1,5 @@
 import { Button, Logo } from '@components/common';
+import MetaHead from '@components/common/MetaHead';
 import { Bottom } from '@components/layout';
 import theme from '@styles/theme';
 import Image from 'next/image';
@@ -8,6 +9,7 @@ import cloud1 from 'public/icons/cloud1.svg';
 const Main = () => {
     return (
         <>
+            <MetaHead />
             <Logo />
             <Image src={cloud1} />
             <Bottom>
