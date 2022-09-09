@@ -1,11 +1,11 @@
-import { KakaoSDK } from 'global';
-
 type shareKakaoType = {
-    imageURL: string;
+    imageURL: string | undefined;
+    resultId: string | string[] | undefined;
 };
 
 export const shareWithKakao = ({
-    imageURL = 'https://firebasestorage.googleapis.com/v0/b/here-your-duckdam.appspot.com/o/images%2Fopen%20graph%20%E1%84%90%E1%85%A6%E1%84%89%E1%85%B3%E1%84%90%E1%85%B3.png?alt=media&token=d6298a74-b548-4a1a-89bb-8362f95a2092',
+    imageURL = process.env.NEXT_PUBLIC_OG,
+    resultId,
 }: shareKakaoType) => {
     const { Kakao } = window;
 
@@ -18,23 +18,26 @@ export const shareWithKakao = ({
             imageHeight: 420,
             imageUrl: imageURL,
             link: {
-                webUrl: process.env.NEXT_PUBLIC_SITE_URL,
-                mobileWebUrl: process.env.NEXT_PUBLIC_SITE_URL,
+                webUrl: process.env.NEXT_PUBLIC_SITE_URL + 'secret/' + resultId,
+                mobileWebUrl:
+                    process.env.NEXT_PUBLIC_SITE_URL + 'secret/' + resultId,
             },
         },
         buttons: [
             {
                 title: '나에게 어떤 덕담이 왔을까?',
                 link: {
-                    webUrl: process.env.NEXT_PUBLIC_SITE_URL,
-                    mobileWebUrl: process.env.NEXT_PUBLIC_SITE_URL,
+                    webUrl:
+                        process.env.NEXT_PUBLIC_SITE_URL + 'secret/' + resultId,
+                    mobileWebUrl:
+                        process.env.NEXT_PUBLIC_SITE_URL + 'secret/' + resultId,
                 },
             },
         ],
     });
 };
 
-export const shareWithTwitter = (shareURL: string) => {
+export const shareWithTwitter = (shareURL: string | undefined) => {
     window.open(
         `https://twitter.com/intent/tweet?url=${shareURL}&text=${'비밀 덕담이 도착했어요! 바로 확인해보세요🥁'}`
     );

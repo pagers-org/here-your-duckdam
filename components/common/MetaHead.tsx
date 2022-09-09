@@ -12,7 +12,7 @@ const MetaHead = ({
     tabTitle = '여기 덕담이요!',
     title = '여기 덕담이요!',
     description = '가족, 친구들에게 따뜻한 한마디를 선물해보세요!',
-    img_url,
+    img_url = process.env.NEXT_PUBLIC_DEFAULT_OG_IMAGE,
 }: OptionalMetaHeadProps) => {
     return (
         <Head>
@@ -23,8 +23,10 @@ const MetaHead = ({
             <meta property="og:image" content={img_url} />
             <meta property="og:image:width" content="1200" />
             <meta property="og:image:height" content="630" />
-            {/* TODO url 변경 */}
-            <meta property="og:url" content="https://example.com/page.html" />
+            <meta
+                property="og:url"
+                content={process.env.NEXT_PUBLIC_SITE_URL}
+            />
             <meta property="og:title" content={title} />
             <meta property="og:description" content={description} />
             <meta name="twitter:card" content="summary" />

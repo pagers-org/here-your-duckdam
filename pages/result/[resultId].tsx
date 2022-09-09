@@ -1,7 +1,7 @@
 import { Button, Description, MessageBox, Title } from '@components/common';
 import {
+    LinkCopyButton,
     shareWithKakao,
-    shareWithOthers,
     shareWithTwitter,
 } from '@components/result';
 import styled from '@emotion/styled';
@@ -10,22 +10,23 @@ import { theme } from '@styles/index';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import loadingGif from 'public/icons/duckdam-package.svg';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 const Result = () => {
     const router = useRouter();
+    const { resultId } = router.query;
+    const resultURL = process.env.NEXT_PUBLIC_SITE_URL + 'secret/' + resultId;
+    const urlArea = useRef(null);
     const [duckdam, setDuckdam] = useState<DuckDomWithImg>();
 
     useEffect(() => {
         const dataFetch = async () => {
-            const { result } = router.query;
-            const res = await fetch(`/api/duckdam/${result}`);
+            const res = await fetch(`/api/duckdam/${resultId}`);
             const data = await res.json();
             setDuckdam(data);
         };
-
         dataFetch();
-    }, []);
+    }, [router.query, resultId]);
 
     return (
         <>
@@ -40,7 +41,20 @@ const Result = () => {
                         }
                     ></Description>
                 </MessageBox>
-                <Button>링크 복사하기</Button>
+                <LinkCopyButton
+                    ref={urlArea}
+                    onClick={() => {
+                        const t = document.createElement('textarea');
+                        document.body.appendChild(t);
+                        t.value = resultURL;
+                        t.select();
+                        document.execCommand('copy');
+
+                        alert('링크가 복사되었습니다!');
+                    }}
+                >
+                    {resultURL}
+                </LinkCopyButton>
             </Wrapper>
             <ShareWrapper>
                 <Button
@@ -48,6 +62,7 @@ const Result = () => {
                         if (duckdam) {
                             const props = {
                                 imageURL: duckdam.img_url,
+                                resultId: resultId,
                             };
                             shareWithKakao(props);
                         }
@@ -58,12 +73,11 @@ const Result = () => {
                 </Button>
                 <Button
                     onClick={() => {
-                        //TODO 추후 웹사이트 링크로 변경 예정
-                        shareWithTwitter('https://www.github.com/');
+                        shareWithTwitter(resultURL);
                     }}
                     backgroundColor={theme.color.orange}
                 >
-                    다른 앱으로 공유하기
+                    트위터로 공유하기
                 </Button>
             </ShareWrapper>
         </>
