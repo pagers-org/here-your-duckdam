@@ -137,6 +137,7 @@ const reset = css`
     button {
         outline: 0;
         border: none;
+        cursor: pointer;
     }
 `;
 

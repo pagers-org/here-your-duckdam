@@ -36,11 +36,11 @@ const Result = () => {
 
                 <MessageBox>
                     <Title>덕담이 만들어졌어요!</Title>
-                    <Description
-                        text={
-                            '*남들에게 공유하기 전까지 덕담은 비밀로 유지됩니다!'
-                        }
-                    ></Description>
+                    <Description>
+                        * 남들에게 공유하기 전까지
+                        <br />
+                        덕담은 비밀로 유지됩니다! 🤫
+                    </Description>
                 </MessageBox>
                 <LinkCopyButton
                     ref={urlArea}
@@ -70,7 +70,7 @@ const Result = () => {
                     color={theme.light.text.button}
                     backgroundColor={theme.light.bg.button}
                 >
-                    카톡 공유하기
+                    카톡으로 비밀덕담 나누기
                 </Button>
                 <Button
                     onClick={() => {
@@ -79,7 +79,7 @@ const Result = () => {
                     color={theme.light.text.button}
                     backgroundColor={theme.light.bg.button}
                 >
-                    트위터로 공유하기
+                    트위터로 비밀덕담 나누기
                 </Button>
             </Bottom>
         </>
@@ -93,8 +93,9 @@ const Wrapper = styled.div`
     height: 80%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    /* justify-content: center;
+    align-items: center; */
 `;
 
 const ShareWrapper = styled.div`

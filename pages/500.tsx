@@ -1,4 +1,4 @@
-import { Button, Description, Title } from '@components/common';
+import { Button, Description, EmojiTitle, Title } from '@components/common';
 import { Bottom } from '@components/layout';
 import theme from '@styles/theme';
 import Link from 'next/link';
@@ -6,8 +6,9 @@ import Link from 'next/link';
 const Custom500 = () => {
     return (
         <>
+            <EmojiTitle>😢</EmojiTitle>
             <Title>엇! 토끼와의 연결이 끊긴 것 같아요!</Title>
-            <Description text="잠시 후에 다시 이용해주세요."></Description>
+            <Description>잠시 후에 다시 이용해주세요🙇‍♀️</Description>
 
             <Bottom>
                 <Link href="/">

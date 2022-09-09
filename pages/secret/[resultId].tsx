@@ -1,4 +1,4 @@
-import { Button, MessageBox, Title } from '@components/common';
+import { Button, EmojiTitle, MessageBox, Title } from '@components/common';
 import MetaHead from '@components/common/MetaHead';
 import { Bottom } from '@components/layout';
 import { Card } from '@components/result';
@@ -28,6 +28,7 @@ const ResultDetail = ({ data }: ResultProps) => {
                 img_url={img_url}
             />
             <Wrapper>
+                <EmojiTitle>😝</EmojiTitle>
                 <Title>내 진짜 마음은...</Title>
                 <MessageBox>
                     <Card>{first_word}</Card>
@@ -72,6 +73,6 @@ const Wrapper = styled.div`
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    padding-top: 3rem;
 `;

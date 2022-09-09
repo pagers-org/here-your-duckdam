@@ -9,7 +9,7 @@ export default Title;
 
 const StyledTitle = styled.div`
     word-break: keep-all;
-    font-size: 22px;
+    font-size: 25px;
     font-weight: bold;
     letter-spacing: -0.29px;
 `;

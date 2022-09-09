@@ -3,7 +3,6 @@ import styled from '@emotion/styled';
 import { Keyframe, KeyframeKey } from '@styles/keyframe';
 import Image from 'next/image';
 import logo_light from 'public/icons/main-logo_light.svg';
-import React from 'react';
 
 const Logo = ({ keyframe }: { keyframe?: KeyframeKey }) => {
     return (
