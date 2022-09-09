@@ -15,8 +15,7 @@ import { useEffect, useRef, useState } from 'react';
 const Result = () => {
     const router = useRouter();
     const { resultId } = router.query;
-    const resultURL =
-        process.env.NEXT_PUBLIC_SITE_URL + '/' + 'secret/' + resultId;
+    const resultURL = process.env.NEXT_PUBLIC_SITE_URL + 'secret/' + resultId;
     const urlArea = useRef(null);
     const [duckdam, setDuckdam] = useState<DuckDomWithImg>();
 

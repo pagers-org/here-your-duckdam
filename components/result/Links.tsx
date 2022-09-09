@@ -18,16 +18,9 @@ export const shareWithKakao = ({
             imageHeight: 420,
             imageUrl: imageURL,
             link: {
-                webUrl:
-                    process.env.NEXT_PUBLIC_SITE_URL +
-                    '/' +
-                    'secret/' +
-                    resultId,
+                webUrl: process.env.NEXT_PUBLIC_SITE_URL + 'secret/' + resultId,
                 mobileWebUrl:
-                    process.env.NEXT_PUBLIC_SITE_URL +
-                    '/' +
-                    'secret/' +
-                    resultId,
+                    process.env.NEXT_PUBLIC_SITE_URL + 'secret/' + resultId,
             },
         },
         buttons: [
@@ -35,15 +28,9 @@ export const shareWithKakao = ({
                 title: '나에게 어떤 덕담이 왔을까?',
                 link: {
                     webUrl:
-                        process.env.NEXT_PUBLIC_SITE_URL +
-                        '/' +
-                        'secret/' +
-                        resultId,
+                        process.env.NEXT_PUBLIC_SITE_URL + 'secret/' + resultId,
                     mobileWebUrl:
-                        process.env.NEXT_PUBLIC_SITE_URL +
-                        '/' +
-                        'secret/' +
-                        resultId,
+                        process.env.NEXT_PUBLIC_SITE_URL + 'secret/' + resultId,
                 },
             },
         ],
