@@ -1,11 +1,13 @@
-export const PoliteKeys = 0 | 50 | 100;
+export const PoliteKeys = [0, 50, 100] as const;
+export type PoliteKeyType = typeof PoliteKeys[number];
+
 export const word_0 = [
     '내가 제일 아끼는 사람에게',
     '천사에게',
     '나의 소중한 사람에게',
     '여러분에게',
 ];
-export const word_1: Record<typeof PoliteKeys, string[]> = {
+export const word_1: Record<PoliteKeyType, string[]> = {
     0: [
         '치킨을',
         '너를',
@@ -26,7 +28,7 @@ export const word_1: Record<typeof PoliteKeys, string[]> = {
         '기쁨과 행복이 가득한 추석',
     ],
 };
-export const word_2: Record<typeof PoliteKeys, string[]> = {
+export const word_2: Record<PoliteKeyType, string[]> = {
     0: ['줘', '줄게', '소중히 여길게', '돌려줘'],
     50: ['보내세요', '많이 드세요'],
     100: ['되시길 바랍니다'],

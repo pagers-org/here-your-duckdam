@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import { PoliteKeys } from '@shared/constant/CardMessage';
 import React, { useState } from 'react';
 
 const AttitudeRange = (props: {
@@ -14,16 +15,25 @@ const AttitudeRange = (props: {
     return (
         <StyledRange>
             <label htmlFor="range">
-                <span>0</span>
-                <span>50</span>
-                <span>100</span>
+                {PoliteKeys.map((item) => (
+                    <span key={item}>{item}</span>
+                ))}
             </label>
             <input
+                min="0"
+                max="100"
+                step="50"
                 type="range"
                 id="range"
+                list="rangeList"
                 value={rangeValue}
                 onChange={handleRangeValue}
             />
+            <datalist id="rangeList">
+                {PoliteKeys.map((item) => (
+                    <option key={item}>{item}</option>
+                ))}
+            </datalist>
         </StyledRange>
     );
 };
@@ -31,29 +41,19 @@ const AttitudeRange = (props: {
 export default AttitudeRange;
 
 const StyledRange = styled.div`
-    display: flex;
-    margin-top: 30px;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-
-    label {
-        display: flex;
+    padding: 3rem;
+    & > label {
         width: 100%;
+        display: flex;
+        font-weight: 400;
+        color: black;
+        display: flex;
         font-size: 1.3rem;
         justify-content: space-between;
         padding-bottom: 0.4rem;
-        & span:nth-of-type(1) {
+        span:nth-of-type(2) {
             position: relative;
-            left: -1rem;
-        }
-        & span:nth-of-type(2) {
-            position: relative;
-            right: -0.8rem;
-        }
-        & span:nth-of-type(3) {
-            position: relative;
-            right: -1rem;
+            left: 0.8rem;
         }
     }
 
@@ -61,25 +61,14 @@ const StyledRange = styled.div`
         width: 300px;
         margin: 16px 0;
         -webkit-appearance: none;
-    }
-
-    input[type='range'] + label {
-        background-color: #fff;
-        position: absolute;
-        top: -25px;
-        left: 110px;
-        width: 80px;
-        padding: 5px 0;
-        text-align: center;
-        border-radius: 4px;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+        background-color: inherit;
+        border-width: 16px;
     }
 
     /* Chrome & Safari  */
     input[type='range']::-webkit-slider-runnable-track {
         background: ${({ theme }) => theme.color.darkGray};
         border-radius: 4px;
-        width: 100%;
         height: 10px;
         cursor: pointer;
     }
