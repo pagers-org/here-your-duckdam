@@ -61,15 +61,15 @@ const Result = () => {
                 <Button
                     onClick={() => {
                         if (!duckdam) return;
-                            /**
-                             * @typedef props
-                             * @type {object}
-                             * @property {string} imageURL - og:image 목적의 img_url
-                             * @property {string} resultId - firebase ObjectId
-                             * @description
-                             * TODO: img_url 디자인 작업 완료 후, 첫번째 카드 기준으로 image 생성하여 작업 필요함.
-                             * 현재 Default OG img 사용
-                             */
+                        /**
+                         * @typedef props
+                         * @type {object}
+                         * @property {string} imageURL - og:image 목적의 img_url
+                         * @property {string} resultId - firebase ObjectId
+                         * @description
+                         * TODO: img_url 디자인 작업 완료 후, 첫번째 카드 기준으로 image 생성하여 작업 필요함.
+                         * 현재 Default OG img 사용
+                         */
                         const props = {
                             imageURL: duckdam.img_url,
                             resultURL,
