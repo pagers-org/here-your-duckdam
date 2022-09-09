@@ -1,5 +1,7 @@
 import styled from '@emotion/styled';
+import { PoliteKeys } from '@shared/constant/CardMessage';
 import React, { useState } from 'react';
+
 const AttitudeRange = (props: {
     initialValue: number;
     handleRange: (range: number) => void;
@@ -13,9 +15,9 @@ const AttitudeRange = (props: {
     return (
         <StyledRange>
             <label htmlFor="range">
-                <span>0</span>
-                <span>50</span>
-                <span>100</span>
+                {PoliteKeys.map((item) => (
+                    <span key={item}>{item}</span>
+                ))}
             </label>
             <input
                 min="0"
@@ -28,9 +30,9 @@ const AttitudeRange = (props: {
                 onChange={handleRangeValue}
             />
             <datalist id="rangeList">
-                <option>0</option>
-                <option>50</option>
-                <option>10</option>
+                {PoliteKeys.map((item) => (
+                    <option key={item}>{item}</option>
+                ))}
             </datalist>
         </StyledRange>
     );
