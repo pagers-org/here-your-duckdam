@@ -14,7 +14,7 @@ const LoadingLogo = () => {
                     <Image src={moon} alt="orange circle background" />
                 </span>
                 <span>
-                    <div className="bg" css={bgCss}>
+                    <div css={bgCss}>
                         <Image
                             src={loadingBgWithoutCircle}
                             alt="cloud and stars background"
