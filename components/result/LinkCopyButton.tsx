@@ -49,6 +49,7 @@ const Result = styled.span`
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+    font-size: 14px;
     ::-webkit-scrollbar {
         width: 1rem;
     }
@@ -57,7 +58,8 @@ const Result = styled.span`
 const CopyButton = styled.button`
     background-color: ${({ theme }) => theme.color.brown};
     font-size: 16px;
-    width: 12%;
+    max-width: 12%;
+    width: 9%;
     height: 100%;
 `;
 
