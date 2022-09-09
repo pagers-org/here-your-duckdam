@@ -3,9 +3,10 @@ import styled from '@emotion/styled';
 import { Keyframe, KeyframeKey } from '@styles/keyframe';
 import React from 'react';
 
+type DirectionTypes = 'default' | 'guest';
 type ItemProps = {
     children: React.ReactNode;
-    type?: 'default' | 'guest';
+    type?: DirectionTypes;
 };
 
 const MessageItem = ({ type = 'default', children }: ItemProps) => {
@@ -29,7 +30,7 @@ const TransitionBox = styled.div<{
         `};
 `;
 
-const Wrapper = styled.div<{ type: string; direction: string }>`
+const Wrapper = styled.div<{ type: string; direction?: DirectionTypes }>`
     position: relative;
     background-color: ${({ theme, type }) =>
         type === 'guest' ? theme.color.white : theme.color.orange};
