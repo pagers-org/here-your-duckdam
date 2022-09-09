@@ -1,4 +1,5 @@
 import { Button, Description, MessageBox, Title } from '@components/common';
+import { Bottom } from '@components/layout';
 import {
     LinkCopyButton,
     shareWithKakao,
@@ -14,7 +15,7 @@ import { useEffect, useRef, useState } from 'react';
 
 const Result = () => {
     const router = useRouter();
-    const { resultId } = router.query;
+    const resultId = router.query.resultId as string;
     const resultURL = process.env.NEXT_PUBLIC_SITE_URL + 'secret/' + resultId;
     const urlArea = useRef(null);
     const [duckdam, setDuckdam] = useState<DuckDomWithImg>();
@@ -35,11 +36,11 @@ const Result = () => {
 
                 <MessageBox>
                     <Title>덕담이 만들어졌어요!</Title>
-                    <Description
-                        text={
-                            '*남들에게 공유하기 전까지 덕담은 비밀로 유지됩니다!'
-                        }
-                    ></Description>
+                    <Description>
+                        * 남들에게 공유하기 전까지
+                        <br />
+                        덕담은 비밀로 유지됩니다! 🤫
+                    </Description>
                 </MessageBox>
                 <LinkCopyButton
                     ref={urlArea}
@@ -56,30 +57,40 @@ const Result = () => {
                     {resultURL}
                 </LinkCopyButton>
             </Wrapper>
-            <ShareWrapper>
+            <Bottom>
                 <Button
                     onClick={() => {
-                        if (duckdam) {
-                            const props = {
-                                imageURL: duckdam.img_url,
-                                resultId: resultId,
-                            };
-                            shareWithKakao(props);
-                        }
+                        if (!duckdam) return;
+                        /**
+                         * @typedef props
+                         * @type {object}
+                         * @property {string} imageURL - og:image 목적의 img_url
+                         * @property {string} resultId - firebase ObjectId
+                         * @description
+                         * TODO: img_url 디자인 작업 완료 후, 첫번째 카드 기준으로 image 생성하여 작업 필요함.
+                         * 현재 Default OG img 사용
+                         */
+                        const props = {
+                            imageURL: duckdam.img_url,
+                            resultURL,
+                        };
+                        shareWithKakao(props);
                     }}
-                    backgroundColor={theme.color.orange}
+                    color={theme.light.text.button}
+                    backgroundColor={theme.light.bg.button}
                 >
-                    카톡 공유하기
+                    카톡으로 비밀덕담 나누기
                 </Button>
                 <Button
                     onClick={() => {
                         shareWithTwitter(resultURL);
                     }}
-                    backgroundColor={theme.color.orange}
+                    color={theme.light.text.button}
+                    backgroundColor={theme.light.bg.button}
                 >
-                    트위터로 공유하기
+                    트위터로 비밀덕담 나누기
                 </Button>
-            </ShareWrapper>
+            </Bottom>
         </>
     );
 };
@@ -91,8 +102,9 @@ const Wrapper = styled.div`
     height: 80%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    /* justify-content: center;
+    align-items: center; */
 `;
 
 const ShareWrapper = styled.div`

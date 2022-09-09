@@ -1,14 +1,23 @@
 import { Button, Logo } from '@components/common';
 import { Bottom } from '@components/layout';
+import theme from '@styles/theme';
+import Image from 'next/image';
 import Link from 'next/link';
+import cloud1 from 'public/icons/cloud1.svg';
 
 const Main = () => {
     return (
         <>
             <Logo />
+            <Image src={cloud1} />
             <Bottom>
                 <Link href="/attitude">
-                    <Button>덕담 만들러 가자!</Button>
+                    <Button
+                        color={theme.light.text.button}
+                        backgroundColor={theme.light.bg.button}
+                    >
+                        덕담 만들러 가자!
+                    </Button>
                 </Link>
             </Bottom>
         </>

@@ -1,11 +1,11 @@
 type shareKakaoType = {
     imageURL: string | undefined;
-    resultId: string | string[] | undefined;
+    resultURL: string;
 };
 
 export const shareWithKakao = ({
-    imageURL = process.env.NEXT_PUBLIC_OG,
-    resultId,
+    imageURL = process.env.NEXT_PUBLIC_DEFAULT_OG_IMAGE,
+    resultURL,
 }: shareKakaoType) => {
     const { Kakao } = window;
 
@@ -18,26 +18,23 @@ export const shareWithKakao = ({
             imageHeight: 420,
             imageUrl: imageURL,
             link: {
-                webUrl: process.env.NEXT_PUBLIC_SITE_URL + 'secret/' + resultId,
-                mobileWebUrl:
-                    process.env.NEXT_PUBLIC_SITE_URL + 'secret/' + resultId,
+                webUrl: resultURL,
+                mobileWebUrl: resultURL,
             },
         },
         buttons: [
             {
                 title: '나에게 어떤 덕담이 왔을까?',
                 link: {
-                    webUrl:
-                        process.env.NEXT_PUBLIC_SITE_URL + 'secret/' + resultId,
-                    mobileWebUrl:
-                        process.env.NEXT_PUBLIC_SITE_URL + 'secret/' + resultId,
+                    webUrl: resultURL,
+                    mobileWebUrl: resultURL,
                 },
             },
         ],
     });
 };
 
-export const shareWithTwitter = (shareURL: string | undefined) => {
+export const shareWithTwitter = (shareURL: string) => {
     window.open(
         `https://twitter.com/intent/tweet?url=${shareURL}&text=${'비밀 덕담이 도착했어요! 바로 확인해보세요🥁'}`
     );

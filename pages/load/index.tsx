@@ -1,18 +1,21 @@
 import { LoadingLogo, Title } from '@components/common';
 import type { PoliteKey } from '@shared/types/DuckDam';
 import { randomNewDuckDam } from '@shared/utils/duckdamGenerator';
+import { getStorageImage } from '@shared/utils/getStorageImage';
+import { randomNumber } from '@shared/utils/randomNumber';
 import { useRouter } from 'next/router';
 import React, { useCallback, useEffect } from 'react';
+import { word_0 } from 'shared/constant/CardMessage';
 
 const Load = () => {
     const router = useRouter();
 
     const addNewDuckDamHandler = useCallback(
         async (politeLevel: PoliteKey) => {
+            const randomImageNumber = randomNumber(word_0.length);
             const newDuckDam = {
-                // TODO: politeLevel 기준으로 FireBase ImageURL 매핑 작업 진행 필요함.
-                img_url: '',
-                ...randomNewDuckDam(politeLevel),
+                img_url: getStorageImage(randomImageNumber),
+                ...randomNewDuckDam({ randomImageNumber, politeLevel }),
             };
             const response = await fetch('/api/duckdam/add', {
                 method: 'POST',

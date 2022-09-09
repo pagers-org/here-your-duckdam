@@ -1,7 +1,9 @@
-import { Button, MessageBox, Title } from '@components/common';
+import { Button, EmojiTitle, MessageBox, Title } from '@components/common';
 import MetaHead from '@components/common/MetaHead';
+import { Bottom } from '@components/layout';
 import { Card } from '@components/result';
 import styled from '@emotion/styled';
+import { theme } from '@styles/index';
 import Router from 'next/router';
 
 type ResultProps = {
@@ -26,19 +28,24 @@ const ResultDetail = ({ data }: ResultProps) => {
                 img_url={img_url}
             />
             <Wrapper>
+                <EmojiTitle>😝</EmojiTitle>
                 <Title>내 진짜 마음은...</Title>
                 <MessageBox>
                     <Card>{first_word}</Card>
                     <Card>{second_word}</Card>
                     <Card>{third_word}</Card>
                 </MessageBox>
-                <Button
-                    onClick={() => {
-                        Router.push('/');
-                    }}
-                >
-                    나도 덕담 나눌래!
-                </Button>
+                <Bottom>
+                    <Button
+                        onClick={() => {
+                            Router.push('/');
+                        }}
+                        color={theme.light.text.button}
+                        backgroundColor={theme.light.bg.button}
+                    >
+                        나도 덕담 나눌래!
+                    </Button>
+                </Bottom>
             </Wrapper>
         </>
     );
@@ -66,6 +73,6 @@ const Wrapper = styled.div`
     height: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    padding-top: 3rem;
 `;
