@@ -4,7 +4,7 @@ import { Bottom } from '@components/layout';
 import { Card } from '@components/result';
 import styled from '@emotion/styled';
 import { theme } from '@styles/index';
-import Router from 'next/router';
+import Router, { useRouter } from 'next/router';
 
 type ResultProps = {
     data: DuckdamType;
@@ -18,6 +18,9 @@ type DuckdamType = {
 
 const ResultDetail = ({ data }: ResultProps) => {
     const { img_url, first_word, second_word, third_word } = data;
+    const router = useRouter();
+    const resultId = router.query.resultId as string;
+    const resultURL = process.env.NEXT_PUBLIC_SITE_URL + 'secret/' + resultId;
 
     return (
         <>
@@ -25,6 +28,7 @@ const ResultDetail = ({ data }: ResultProps) => {
                 tabTitle="사실은..."
                 title="비밀 덕담이 도착했습니다!"
                 description="여기를 눌러 덕담을 확인하세요 💌"
+                url={resultURL}
                 img_url={img_url}
             />
             <Wrapper>
@@ -64,7 +68,7 @@ export async function getServerSideProps(context: {
     const data = await res.json();
 
     return {
-        props: { data }, // will be passed to the page component as props
+        props: { data, id: params.resultId }, // will be passed to the page component as props
     };
 }
 
