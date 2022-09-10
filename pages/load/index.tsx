@@ -4,8 +4,10 @@ import type { PoliteKey } from '@shared/types/DuckDam';
 import { randomNewDuckDam } from '@shared/utils/duckdamGenerator';
 import { getStorageImage } from '@shared/utils/getStorageImage';
 import { randomNumber } from '@shared/utils/randomNumber';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
-import React, { useCallback, useEffect } from 'react';
+import { loading } from 'public/icons/index';
+import { useCallback, useEffect } from 'react';
 import { word_0 } from 'shared/constant/CardMessage';
 
 const Load = () => {
@@ -19,7 +21,6 @@ const Load = () => {
                 ...randomNewDuckDam({ randomImageNumber, politeLevel }),
             };
 
-            console.log(newDuckDam);
             const response = await fetch('/api/duckdam/add', {
                 method: 'POST',
                 body: JSON.stringify(newDuckDam),
@@ -29,11 +30,11 @@ const Load = () => {
             });
 
             const id = await response.json();
-            // if (response.ok) {
-            //     setTimeout(() => {
-            //         router.push(`/result/${id}`);
-            //     }, 3000);
-            // }
+            if (response.ok) {
+                setTimeout(() => {
+                    router.push(`/result/${id}`);
+                }, 3000);
+            }
         },
         [router]
     );
@@ -54,14 +55,12 @@ const Load = () => {
     }, [router.query.politeLevel, router, addNewDuckDamHandler]);
 
     return (
-        <>
-            <LoadingLogo />
-            <Wrapper>
-                <div>
-                    <Title>토끼가 덕담 고르는 중</Title>
-                </div>
-            </Wrapper>
-        </>
+        <Wrapper>
+            <Image src={loading} alt="selecting card rabbit" />
+            <div>
+                <Title>토끼가 덕담 고르는 중</Title>
+            </div>
+        </Wrapper>
     );
 };
 
@@ -70,10 +69,7 @@ export default Load;
 const Wrapper = styled.div`
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    position: relative;
-    div:nth-child(1) {
-        margin-top: 30px;
-    }
 `;
