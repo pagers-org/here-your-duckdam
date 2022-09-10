@@ -93,12 +93,3 @@ const Wrapper = styled.div`
     flex-direction: column;
     align-items: center;
 `;
-
-const ShareWrapper = styled.div`
-    position: relative;
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-`;

@@ -2,7 +2,6 @@ import MetaHead from '@components/common/MetaHead';
 import styled from '@emotion/styled';
 import { KakaoSDK } from 'global';
 import Image from 'next/image';
-import { loadingBgWithoutCircle } from 'public/icons/index';
 import React, { useEffect } from 'react';
 
 type LayoutProps = {
@@ -23,15 +22,7 @@ const Layout = ({ children }: LayoutProps) => {
 
     return (
         <>
-            <Wrapper>
-                <div>{children}</div>
-                <span>
-                    <Image
-                        src={loadingBgWithoutCircle}
-                        alt="cloud and stars background"
-                    />
-                </span>
-            </Wrapper>
+            <Wrapper>{children}</Wrapper>
         </>
     );
 };
@@ -48,15 +39,8 @@ const Wrapper = styled.div`
     max-width: 480px;
     width: 100%;
     height: 100vh;
-    background-color: #fcf5e6;
     box-shadow: ${({ theme }) => theme.shadow.layout};
-    > div {
-        z-index: 10;
-    }
-    > span {
-        position: absolute;
-        z-index: 3;
-    }
+    background: url('https://firebasestorage.googleapis.com/v0/b/here-your-duckdam.appspot.com/o/images%2FloadingBgWithoutCircle.png?alt=media&token=38d0bbc0-aba5-4146-9fb9-dc7c8c8368fb')
+        no-repeat center center #fcf5e5;
+    background-size: cover;
 `;
-
-const StyledSpan = styled.span``;
