@@ -13,7 +13,7 @@ const useAttitudeHooks = () => {
     );
 
     const politeLevel = useMemo((): PoliteKey => {
-        if (politeRange > 0 && politeRange < 30) {
+        if (politeRange >= 0 && politeRange < 30) {
             return 0;
         }
         if (politeRange > 33 && politeRange < 60) {

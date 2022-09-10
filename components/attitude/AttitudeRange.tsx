@@ -9,7 +9,7 @@ const AttitudeRange = (props: {
     const [rangeValue, setRangeValue] = useState(props.initialValue);
     const handleRangeValue = (event: React.ChangeEvent<HTMLInputElement>) => {
         setRangeValue(event.target.valueAsNumber);
-        props.handleRange(rangeValue);
+        props.handleRange(event.target.valueAsNumber);
     };
 
     return (

@@ -15,10 +15,8 @@ const Load = () => {
 
     const addNewDuckDamHandler = useCallback(
         async (politeLevel: PoliteKey) => {
-            const randomImageNumber = randomNumber(word_0.length);
             const newDuckDam = {
-                img_url: getStorageImage(randomImageNumber),
-                ...randomNewDuckDam({ randomImageNumber, politeLevel }),
+                ...randomNewDuckDam(politeLevel),
             };
 
             const response = await fetch('/api/duckdam/add', {
