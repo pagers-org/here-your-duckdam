@@ -19,7 +19,6 @@ const Load = () => {
                 ...randomNewDuckDam({ randomImageNumber, politeLevel }),
             };
 
-            console.log(newDuckDam);
             const response = await fetch('/api/duckdam/add', {
                 method: 'POST',
                 body: JSON.stringify(newDuckDam),
@@ -54,25 +53,20 @@ const Load = () => {
     }, [router.query.politeLevel, router, addNewDuckDamHandler]);
 
     return (
-        <>
+        <Wrapper>
             <LoadingLogo />
-            <Wrapper>
-                <div>
-                    <Title>토끼가 덕담 고르는 중</Title>
-                </div>
-            </Wrapper>
-        </>
+            <Title>토끼가 덕담 고르는 중...</Title>
+        </Wrapper>
     );
 };
 
 export default Load;
 
 const Wrapper = styled.div`
-    width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    position: relative;
+
     div:nth-child(1) {
         margin-top: 30px;
     }

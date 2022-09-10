@@ -1,8 +1,6 @@
 import MetaHead from '@components/common/MetaHead';
 import styled from '@emotion/styled';
 import { KakaoSDK } from 'global';
-import Image from 'next/image';
-import { loadingBgWithoutCircle } from 'public/icons/index';
 import React, { useEffect } from 'react';
 
 type LayoutProps = {
@@ -23,15 +21,7 @@ const Layout = ({ children }: LayoutProps) => {
 
     return (
         <>
-            <Wrapper>
-                <div>{children}</div>
-                <span>
-                    <Image
-                        src={loadingBgWithoutCircle}
-                        alt="cloud and stars background"
-                    />
-                </span>
-            </Wrapper>
+            <Wrapper>{children}</Wrapper>
         </>
     );
 };
@@ -39,6 +29,7 @@ const Layout = ({ children }: LayoutProps) => {
 export default Layout;
 
 const Wrapper = styled.div`
+    z-index: 100;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -50,13 +41,4 @@ const Wrapper = styled.div`
     height: 100vh;
     background-color: #fcf5e6;
     box-shadow: ${({ theme }) => theme.shadow.layout};
-    > div {
-        z-index: 10;
-    }
-    > span {
-        position: absolute;
-        z-index: 3;
-    }
 `;
-
-const StyledSpan = styled.span``;
