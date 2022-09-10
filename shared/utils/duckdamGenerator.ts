@@ -1,18 +1,14 @@
-import type { DuckDamObj, PoliteKey } from '@shared/types/DuckDam';
+import type { DuckDomWithImg, PoliteKey } from '@shared/types/DuckDam';
 import { randomNumber } from '@shared/utils/randomNumber';
 import { word_0, word_1, word_2 } from 'shared/constant/CardMessage';
 
-type NewDuckdamType = {
-    randomImageNumber: number;
-    politeLevel: PoliteKey;
-};
+import { getStorageImage } from './getStorageImage';
 
-export const randomNewDuckDam = ({
-    randomImageNumber,
-    politeLevel,
-}: NewDuckdamType): DuckDamObj => {
+export const randomNewDuckDam = (politeLevel: PoliteKey): DuckDomWithImg => {
+    const firstRandomIndex = randomNumber(word_0.length);
     return {
-        first_word: word_0[randomImageNumber],
+        img_url: getStorageImage(firstRandomIndex),
+        first_word: word_0[firstRandomIndex],
         second_word:
             word_1[politeLevel][randomNumber(word_1[politeLevel].length)],
         third_word:
@@ -21,8 +17,7 @@ export const randomNewDuckDam = ({
 };
 
 export const randomNewDuckDamMessage = (politeLevel: PoliteKey) => {
-    const randomImageNumber = randomNumber(word_0.length);
-    return Object.values(
-        randomNewDuckDam({ politeLevel, randomImageNumber })
-    ).join(' ');
+    const { first_word, second_word, third_word } =
+        randomNewDuckDam(politeLevel);
+    return `${first_word} ${second_word} ${third_word}`;
 };
