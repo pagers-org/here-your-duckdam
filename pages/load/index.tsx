@@ -1,4 +1,5 @@
 import { LoadingLogo, Title } from '@components/common';
+import styled from '@emotion/styled';
 import type { PoliteKey } from '@shared/types/DuckDam';
 import { randomNewDuckDam } from '@shared/utils/duckdamGenerator';
 import { getStorageImage } from '@shared/utils/getStorageImage';
@@ -28,11 +29,11 @@ const Load = () => {
             });
 
             const id = await response.json();
-            if (response.ok) {
-                setTimeout(() => {
-                    router.push(`/result/${id}`);
-                }, 3000);
-            }
+            // if (response.ok) {
+            //     setTimeout(() => {
+            //         router.push(`/result/${id}`);
+            //     }, 3000);
+            // }
         },
         [router]
     );
@@ -55,9 +56,24 @@ const Load = () => {
     return (
         <>
             <LoadingLogo />
-            <Title>토끼가 덕담 고르는 중</Title>
+            <Wrapper>
+                <div>
+                    <Title>토끼가 덕담 고르는 중</Title>
+                </div>
+            </Wrapper>
         </>
     );
 };
 
 export default Load;
+
+const Wrapper = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    div:nth-child(1) {
+        margin-top: 30px;
+    }
+`;
