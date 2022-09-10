@@ -29,11 +29,11 @@ const Load = () => {
             });
 
             const id = await response.json();
-            // if (response.ok) {
-            //     setTimeout(() => {
-            //         router.push(`/result/${id}`);
-            //     }, 3000);
-            // }
+            if (response.ok) {
+                setTimeout(() => {
+                    router.push(`/result/${id}`);
+                }, 3000);
+            }
         },
         [router]
     );
