@@ -1,4 +1,4 @@
-import { LoadingLogo, Title } from '@components/common';
+import { Title } from '@components/common';
 import styled from '@emotion/styled';
 import type { PoliteKey } from '@shared/types/DuckDam';
 import { randomNewDuckDam } from '@shared/utils/duckdamGenerator';

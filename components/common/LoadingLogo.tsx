@@ -1,7 +1,7 @@
 import { css, keyframes } from '@emotion/react';
 import styled from '@emotion/styled';
 import Image from 'next/image';
-import { loading, loadingBgWithoutCircle, moon } from 'public/icons/index';
+import { loading, moon } from 'public/icons/index';
 
 const LoadingLogo = () => {
     return (
