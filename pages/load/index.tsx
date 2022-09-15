@@ -1,14 +1,8 @@
-import { Title } from '@components/common';
-import styled from '@emotion/styled';
+import { LoadingLogo, Title } from '@components/common';
 import type { PoliteKey } from '@shared/types/DuckDam';
 import { randomNewDuckDam } from '@shared/utils/duckdamGenerator';
-import { getStorageImage } from '@shared/utils/getStorageImage';
-import { randomNumber } from '@shared/utils/randomNumber';
-import Image from 'next/image';
 import { useRouter } from 'next/router';
-import { loading } from 'public/icons/index';
 import { useCallback, useEffect } from 'react';
-import { word_0 } from 'shared/constant/CardMessage';
 
 const Load = () => {
     const router = useRouter();
@@ -53,21 +47,11 @@ const Load = () => {
     }, [router.query.politeLevel, router, addNewDuckDamHandler]);
 
     return (
-        <Wrapper>
-            <Image src={loading} alt="selecting card rabbit" />
-            <div>
-                <Title>토끼가 덕담 고르는 중</Title>
-            </div>
-        </Wrapper>
+        <>
+            <LoadingLogo />
+            <Title>토끼가 덕담 고르는 중</Title>
+        </>
     );
 };
 
 export default Load;
-
-const Wrapper = styled.div`
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-`;
