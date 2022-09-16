@@ -1,5 +1,10 @@
-import { Button, EmojiTitle, MessageBox, Title } from '@components/common';
-import MetaHead from '@components/common/MetaHead';
+import {
+    Button,
+    EmojiTitle,
+    MessageBox,
+    MetaHead,
+    Title,
+} from '@components/common';
 import { Bottom } from '@components/layout';
 import { Card } from '@components/result';
 import styled from '@emotion/styled';

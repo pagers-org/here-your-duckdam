@@ -1,5 +1,4 @@
-import { Button, Logo } from '@components/common';
-import MetaHead from '@components/common/MetaHead';
+import { Button, Logo, MetaHead } from '@components/common';
 import { Bottom } from '@components/layout';
 import theme from '@styles/theme';
 import Link from 'next/link';

@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import React from 'react';
-// import { color } from 'styles/theme';
 
 type ButtonType = {
     children: React.ReactNode;
