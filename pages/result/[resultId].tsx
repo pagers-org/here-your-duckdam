@@ -1,5 +1,10 @@
-import { Button, Description, MessageBox, Title } from '@components/common';
-import MetaHead from '@components/common/MetaHead';
+import {
+    Button,
+    Description,
+    MessageBox,
+    MetaHead,
+    Title,
+} from '@components/common';
 import { Bottom } from '@components/layout';
 import {
     LinkCopyButton,
@@ -12,13 +17,12 @@ import { theme } from '@styles/index';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import loadingGif from 'public/icons/duckdam-package.svg';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const Result = () => {
     const router = useRouter();
     const resultId = router.query.resultId as string;
     const resultURL = process.env.NEXT_PUBLIC_SITE_URL + 'secret/' + resultId;
-    const urlArea = useRef(null);
     const [duckdam, setDuckdam] = useState<DuckDomWithImg>();
 
     useEffect(() => {
