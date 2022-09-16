@@ -4,7 +4,7 @@ export type DuckDamObj = {
     third_word: string;
 };
 
-export type DuckDomWithImg = DuckDamObj & {
+export type DuckDamWithImg = DuckDamObj & {
     img_url: string;
 };
 
