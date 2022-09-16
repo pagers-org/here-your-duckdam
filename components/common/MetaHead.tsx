@@ -20,7 +20,6 @@ const MetaHead = ({
         <Head>
             <title>{tabTitle}</title>
             <meta name="description" content={description} />
-            {/* <link rel="icon" href="/images/favicon.ico" /> */}
             <link rel="icon" href="/images/favicon.ico" />
             {/* default og */}
             <meta property="og:type" content="website" />
