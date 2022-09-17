@@ -1,5 +1,10 @@
-import { Button, Description, MessageBox, Title } from '@components/common';
-import MetaHead from '@components/common/MetaHead';
+import {
+    Button,
+    Description,
+    MessageBox,
+    MetaHead,
+    Title,
+} from '@components/common';
 import { Bottom } from '@components/layout';
 import {
     LinkCopyButton,
@@ -7,28 +12,21 @@ import {
     shareWithTwitter,
 } from '@components/result';
 import styled from '@emotion/styled';
-import { DuckDomWithImg } from '@shared/types/DuckDam';
+import type { DuckDamWithImg } from '@shared/types/DuckDam';
 import { theme } from '@styles/index';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import loadingGif from 'public/icons/duckdam-package.svg';
-import { useEffect, useRef, useState } from 'react';
 
-const Result = () => {
+type ResultProps = {
+    data: DuckDamWithImg;
+};
+
+const Result = ({ data }: ResultProps) => {
+    const { img_url } = data;
     const router = useRouter();
     const resultId = router.query.resultId as string;
     const resultURL = process.env.NEXT_PUBLIC_SITE_URL + 'secret/' + resultId;
-    const urlArea = useRef(null);
-    const [duckdam, setDuckdam] = useState<DuckDomWithImg>();
-
-    useEffect(() => {
-        const dataFetch = async () => {
-            const res = await fetch(`/api/duckdam/${resultId}`);
-            const data = await res.json();
-            setDuckdam(data);
-        };
-        dataFetch();
-    }, [router.query, resultId]);
 
     return (
         <>
@@ -49,18 +47,8 @@ const Result = () => {
             <Bottom>
                 <Button
                     onClick={() => {
-                        if (!duckdam) return;
-                        /**
-                         * @typedef props
-                         * @type {object}
-                         * @property {string} imageURL - og:image 목적의 img_url
-                         * @property {string} resultId - firebase ObjectId
-                         * @description
-                         * TODO: img_url 디자인 작업 완료 후, 첫번째 카드 기준으로 image 생성하여 작업 필요함.
-                         * 현재 Default OG img 사용
-                         */
                         const props = {
-                            imageURL: duckdam.img_url,
+                            imageURL: img_url,
                             resultURL,
                         };
                         shareWithKakao(props);
@@ -85,6 +73,21 @@ const Result = () => {
 };
 
 export default Result;
+
+export async function getServerSideProps(context: {
+    params: { resultId: string };
+}) {
+    const { params } = context;
+
+    const res = await fetch(
+        `${process.env.NEXT_PUBLIC_SITE_URL}/api/duckdam/${params.resultId}`
+    );
+    const data = await res.json();
+
+    return {
+        props: { data, id: params.resultId }, // will be passed to the page component as props
+    };
+}
 
 const Wrapper = styled.div`
     width: 100%;

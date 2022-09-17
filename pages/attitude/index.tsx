@@ -3,8 +3,8 @@ import { Button, Description, Title } from '@components/common';
 import MetaHead from '@components/common/MetaHead';
 import { Bottom } from '@components/layout';
 import styled from '@emotion/styled';
+import useAttitudeHooks from '@shared/hooks/useAttitudeHooks';
 import theme from '@styles/theme';
-import useAttitudeHooks from 'hooks/useAttitudeHooks';
 import { useRouter } from 'next/router';
 
 const Attitude = () => {

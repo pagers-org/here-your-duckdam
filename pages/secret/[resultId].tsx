@@ -1,19 +1,19 @@
-import { Button, EmojiTitle, MessageBox, Title } from '@components/common';
-import MetaHead from '@components/common/MetaHead';
+import {
+    Button,
+    EmojiTitle,
+    MessageBox,
+    MetaHead,
+    Title,
+} from '@components/common';
 import { Bottom } from '@components/layout';
 import { Card } from '@components/result';
 import styled from '@emotion/styled';
+import type { DuckDamWithImg } from '@shared/types/DuckDam';
 import { theme } from '@styles/index';
 import Router, { useRouter } from 'next/router';
 
 type ResultProps = {
-    data: DuckdamType;
-};
-type DuckdamType = {
-    img_url: string;
-    first_word: string;
-    second_word: string;
-    third_word: string;
+    data: DuckDamWithImg;
 };
 
 const ResultDetail = ({ data }: ResultProps) => {

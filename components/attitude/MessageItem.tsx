@@ -1,6 +1,4 @@
-import { css } from '@emotion/react';
 import styled from '@emotion/styled';
-import { Keyframe, KeyframeKey } from '@styles/keyframe';
 import React from 'react';
 
 type DirectionTypes = 'default' | 'guest';
@@ -10,25 +8,10 @@ type ItemProps = {
 };
 
 const MessageItem = ({ type = 'default', children }: ItemProps) => {
-    return (
-        <TransitionBox keyframe={'fadeIn'}>
-            <Wrapper type={type}>{children}</Wrapper>
-        </TransitionBox>
-    );
+    return <Wrapper type={type}>{children}</Wrapper>;
 };
 
 export default MessageItem;
-
-const TransitionBox = styled.div<{
-    keyframe: KeyframeKey;
-}>`
-    border-radius: 12px;
-    animation: ${({ keyframe }) =>
-        css`
-            ${Keyframe[keyframe]};
-            animation-duration: 1s;
-        `};
-`;
 
 const Wrapper = styled.div<{ type: string; direction?: DirectionTypes }>`
     position: relative;

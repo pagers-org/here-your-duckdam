@@ -1,10 +1,10 @@
-import type { DuckDomWithImg, PoliteKey } from '@shared/types/DuckDam';
+import { word_0, word_1, word_2 } from '@shared/constant/CardMessage';
+import type { DuckDamWithImg, PoliteKey } from '@shared/types/DuckDam';
 import { randomNumber } from '@shared/utils/randomNumber';
-import { word_0, word_1, word_2 } from 'shared/constant/CardMessage';
 
 import { getStorageImage } from './getStorageImage';
 
-export const randomNewDuckDam = (politeLevel: PoliteKey): DuckDomWithImg => {
+export const randomNewDuckDam = (politeLevel: PoliteKey): DuckDamWithImg => {
     const firstRandomIndex = randomNumber(word_0.length);
     return {
         img_url: getStorageImage(firstRandomIndex),

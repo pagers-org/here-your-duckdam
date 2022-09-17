@@ -1,6 +1,6 @@
 import { addDoc, collection } from '@firebase/firestore';
+import { db } from '@shared/utils/firebase';
 import { NextApiRequest, NextApiResponse } from 'next';
-import { db } from 'utils/firebase';
 
 async function handler(req: NextApiRequest, res: NextApiResponse) {
     if (req.method === 'POST') {
