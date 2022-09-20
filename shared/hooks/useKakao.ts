@@ -1,10 +1,10 @@
-import type { shareKakaoType } from '@shared/types/SharedKakao';
+import type { ShareKakaoType } from '@shared/types/SharedKakao';
 
 const useKakao = () => {
     const shareWithKakao = ({
         imageURL = process.env.NEXT_PUBLIC_DEFAULT_OG_IMAGE,
         resultURL,
-    }: shareKakaoType) => {
+    }: ShareKakaoType) => {
         const { Kakao } = window;
 
         Kakao.Share.sendDefault({
