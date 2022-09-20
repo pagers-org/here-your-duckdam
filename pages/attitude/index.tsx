@@ -1,6 +1,5 @@
 import { AttitudeRange, MessageBox, MessageItem } from '@components/attitude';
-import { Button, Description, Title } from '@components/common';
-import MetaHead from '@components/common/MetaHead';
+import { Button, Description, MetaHead, Title } from '@components/common';
 import { Bottom } from '@components/layout';
 import styled from '@emotion/styled';
 import useAttitudeHooks from '@shared/hooks/useAttitudeHooks';
@@ -12,7 +11,7 @@ const Attitude = () => {
         useAttitudeHooks();
     const router = useRouter();
 
-    const addNewDuckDamHandler = () => {
+    const handleAddNewDuckDam = () => {
         router.push(`load/?politeLevel=${politeLevel}`);
     };
 
@@ -36,7 +35,7 @@ const Attitude = () => {
                 />
                 <Bottom>
                     <Button
-                        onClick={addNewDuckDamHandler}
+                        onClick={handleAddNewDuckDam}
                         color={theme.light.text.button}
                         backgroundColor={theme.light.bg.button}
                     >

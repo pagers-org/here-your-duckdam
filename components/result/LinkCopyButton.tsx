@@ -9,7 +9,8 @@ type LinkCopyButtonProps = {
 
 const LinkCopyButton = (props: LinkCopyButtonProps) => {
     const linkRef = useRef<HTMLSpanElement>(null);
-    const copyToClipboard = () => {
+
+    const handleCopyToClipboard = () => {
         const link = linkRef.current?.innerText as string;
         navigator.clipboard.writeText(link);
         alert('링크가 복사되었습니다!');
@@ -18,7 +19,7 @@ const LinkCopyButton = (props: LinkCopyButtonProps) => {
     return (
         <Container>
             <Result ref={linkRef}>{props.children}</Result>
-            <CopyButton onClick={copyToClipboard}>
+            <CopyButton onClick={handleCopyToClipboard}>
                 <StyledImage src={copyIcon} />
             </CopyButton>
         </Container>
