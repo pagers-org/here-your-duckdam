@@ -17,6 +17,7 @@ import { theme } from '@styles/index';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import loadingGif from 'public/icons/duckdam-package.svg';
+import React, { useEffect } from 'react';
 
 type ResultProps = {
     data: DuckDamWithImg;
@@ -27,6 +28,17 @@ const Result = ({ data }: ResultProps) => {
     const router = useRouter();
     const resultId = router.query.resultId as string;
     const resultURL = process.env.NEXT_PUBLIC_SITE_URL + 'secret/' + resultId;
+
+    useEffect(() => {
+        const { Kakao } = window;
+        try {
+            if (Kakao) {
+                Kakao.init(process.env.NEXT_PUBLIC_KAKAO_API_KEY);
+            }
+        } catch (error) {
+            console.error(error);
+        }
+    }, []);
 
     return (
         <>

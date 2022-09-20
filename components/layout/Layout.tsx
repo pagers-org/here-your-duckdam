@@ -1,22 +1,10 @@
 import styled from '@emotion/styled';
-import { KakaoSDK } from 'global';
-import React, { useEffect } from 'react';
+
 type LayoutProps = {
     children: React.ReactNode;
 };
 
 const Layout = ({ children }: LayoutProps) => {
-    useEffect(() => {
-        const { Kakao } = window;
-        try {
-            if (Kakao) {
-                Kakao.init(process.env.NEXT_PUBLIC_KAKAO_API_KEY);
-            }
-        } catch (error) {
-            console.error(error);
-        }
-    }, []);
-
     return (
         <>
             <Wrapper>{children}</Wrapper>
