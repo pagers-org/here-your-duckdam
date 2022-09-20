@@ -9,10 +9,10 @@ type LinkCopyButtonProps = {
 
 const LinkCopyButton = (props: LinkCopyButtonProps) => {
     const linkRef = useRef<HTMLSpanElement>(null);
-    const copyToClipboard = async () => {
+    const copyToClipboard = () => {
         const link = linkRef.current?.innerText as string;
-        await navigator.clipboard.writeText(link);
-        await alert('링크가 복사되었습니다!');
+        navigator.clipboard.writeText(link);
+        alert('링크가 복사되었습니다!');
     };
 
     return (
