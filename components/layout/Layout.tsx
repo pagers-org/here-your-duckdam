@@ -1,7 +1,6 @@
 import styled from '@emotion/styled';
 import { KakaoSDK } from 'global';
 import React, { useEffect } from 'react';
-
 type LayoutProps = {
     children: React.ReactNode;
 };
@@ -38,7 +37,7 @@ const Wrapper = styled.div`
     width: 100%;
     height: 100vh;
     box-shadow: ${({ theme }) => theme.shadow.layout};
-    background: url('https://firebasestorage.googleapis.com/v0/b/here-your-duckdam.appspot.com/o/images%2FloadingBgWithoutCircle.png?alt=media&token=38d0bbc0-aba5-4146-9fb9-dc7c8c8368fb')
-        no-repeat center center #fcf5e5;
-    background-size: cover;
+    background: url('/images/background.png') #fcf5e5;
+    background-size: contain;
+    background-repeat: no-repeat;
 `;
