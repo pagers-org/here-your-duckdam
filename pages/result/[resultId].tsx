@@ -6,12 +6,9 @@ import {
     Title,
 } from '@components/common';
 import { Bottom } from '@components/layout';
-import {
-    LinkCopyButton,
-    shareWithKakao,
-    shareWithTwitter,
-} from '@components/result';
+import { LinkCopyButton } from '@components/result';
 import styled from '@emotion/styled';
+import useKakao from '@shared/hooks/useKakao';
 import type { DuckDamWithImg } from '@shared/types/DuckDam';
 import { theme } from '@styles/index';
 import Image from 'next/image';
@@ -24,21 +21,15 @@ type ResultProps = {
 };
 
 const Result = ({ data }: ResultProps) => {
+    const { initKakao, shareWithKakao, shareWithTwitter } = useKakao();
     const { img_url } = data;
     const router = useRouter();
     const resultId = router.query.resultId as string;
     const resultURL = process.env.NEXT_PUBLIC_SITE_URL + 'secret/' + resultId;
 
     useEffect(() => {
-        const { Kakao } = window;
-        try {
-            if (Kakao) {
-                Kakao.init(process.env.NEXT_PUBLIC_KAKAO_API_KEY);
-            }
-        } catch (error) {
-            console.error(error);
-        }
-    }, []);
+        initKakao();
+    }, [initKakao]);
 
     return (
         <>
