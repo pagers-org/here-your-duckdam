@@ -20,7 +20,7 @@ const LinkCopyButton = (props: LinkCopyButtonProps) => {
         <Container>
             <Result ref={linkRef}>{props.children}</Result>
             <CopyButton onClick={handleCopyToClipboard}>
-                <StyledImage src={copyIcon} />
+                <Image src={copyIcon} />
             </CopyButton>
         </Container>
     );
@@ -30,42 +30,31 @@ export default LinkCopyButton;
 
 const Container = styled.div`
     background-color: ${({ theme }) => theme.color.white};
+    box-shadow: ${({ theme }) => theme.shadow.layout};
     display: flex;
     justify-content: space-between;
-    /* justify-content: flex-start; */
     align-items: center;
-    position: relative;
-    font-size: 18px;
     letter-spacing: 1px;
     height: 50px;
-    width: 80%;
-    border-radius: 5px;
+    width: 85%;
 `;
 
 const Result = styled.span`
-    word-wrap: break-word;
-    padding: 0px 7px;
-    max-width: calc(100% - 40px);
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 14px;
-    ::-webkit-scrollbar {
-        width: 1rem;
+    color: ${({ theme }) => theme.color.brown};
+    padding: 0px 12px;
+    line-height: 50px;
+    overflow-y: auto;
+    font-weight: bold;
+    
+    ::-webkit-scrollbar{
+        display:none;
     }
 `;
 
 const CopyButton = styled.button`
     background-color: ${({ theme }) => theme.color.brown};
     font-size: 16px;
-    max-width: 12%;
-    width: 9%;
+    width: 45px;
     height: 100%;
-`;
-
-const StyledImage = styled(Image)`
-    width: 80%;
-    height: 80%;
-    color: ${({ theme }) => theme.color.white};
+    padding-top: 5px;
 `;
