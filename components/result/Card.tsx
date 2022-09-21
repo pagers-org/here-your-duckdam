@@ -10,9 +10,12 @@ const Card = ({ children }: Item) => {
 export default Card;
 
 const StyledCard = styled.div`
-    width: 100%;
-    min-height: 100px;
-    margin: 15px 0px;
+    background-color: ${({ theme }) => theme.color.orange};
+    box-shadow: ${({ theme }) => theme.shadow.layout};
+    width: 90%;
+    height: 80px;
+    margin: 13px 0px;
+    padding: 0 10px;
     border-radius: 5px;
     display: flex;
     justify-content: center;
@@ -20,5 +23,4 @@ const StyledCard = styled.div`
     font-size: 1.2rem;
     font-weight: bold;
     word-break: break-all;
-    background-color: ${({ theme }) => theme.color.orange};
 `;
