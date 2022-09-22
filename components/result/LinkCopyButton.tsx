@@ -20,7 +20,7 @@ const LinkCopyButton = (props: LinkCopyButtonProps) => {
         <Container>
             <Result ref={linkRef}>{props.children}</Result>
             <CopyButton onClick={handleCopyToClipboard}>
-                <Image src={copyIcon} />
+                <Image src={copyIcon} alt="URL 클립보드 복사 아이콘" />
             </CopyButton>
         </Container>
     );
