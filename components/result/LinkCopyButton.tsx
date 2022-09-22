@@ -45,9 +45,9 @@ const Result = styled.span`
     line-height: 50px;
     overflow-y: auto;
     font-weight: bold;
-    
-    ::-webkit-scrollbar{
-        display:none;
+
+    ::-webkit-scrollbar {
+        display: none;
     }
 `;
 
