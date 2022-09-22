@@ -1,5 +1,5 @@
-import styled from '@emotion/styled';
 import MetaHead from '@components/common/MetaHead';
+import styled from '@emotion/styled';
 
 type LayoutProps = {
     children: React.ReactNode;
