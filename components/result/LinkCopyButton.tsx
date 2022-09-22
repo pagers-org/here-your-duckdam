@@ -42,9 +42,9 @@ const Container = styled.div`
 const Result = styled.span`
     color: ${({ theme }) => theme.color.brown};
     padding: 0px 12px;
-    line-height: 50px;
     overflow-y: auto;
     font-weight: bold;
+    white-space: nowrap;
 
     ::-webkit-scrollbar {
         display: none;
