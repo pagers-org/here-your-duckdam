@@ -1,6 +1,5 @@
 import { AttitudeRange, MessageBox, MessageItem } from '@components/attitude';
 import { Button, Description, Title } from '@components/common';
-import MetaHead from '@components/common/MetaHead';
 import { Bottom } from '@components/layout';
 import styled from '@emotion/styled';
 import useAttitudeHooks from '@shared/hooks/useAttitudeHooks';
@@ -12,13 +11,12 @@ const Attitude = () => {
         useAttitudeHooks();
     const router = useRouter();
 
-    const addNewDuckDamHandler = () => {
+    const handleAddNewDuckDam = () => {
         router.push(`load/?politeLevel=${politeLevel}`);
     };
 
     return (
         <>
-            <MetaHead />
             <Wrapper>
                 <SubTitle>다른 토끼들은 이런 덕담을 뽑았어요.</SubTitle>
                 <MessageBox>
@@ -36,7 +34,7 @@ const Attitude = () => {
                 />
                 <Bottom>
                     <Button
-                        onClick={addNewDuckDamHandler}
+                        onClick={handleAddNewDuckDam}
                         color={theme.light.text.button}
                         backgroundColor={theme.light.bg.button}
                     >

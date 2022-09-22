@@ -1,5 +1,4 @@
 import { Button, Description, EmojiTitle, Title } from '@components/common';
-import MetaHead from '@components/common/MetaHead';
 import { Bottom } from '@components/layout';
 import theme from '@styles/theme';
 import Link from 'next/link';
@@ -7,7 +6,6 @@ import Link from 'next/link';
 const Custom404 = () => {
     return (
         <>
-            <MetaHead />
             <EmojiTitle>🫥</EmojiTitle>
             <Title>토끼가 찾을 수 없는 곳에 계신 것 같아요.</Title>
             <Description>

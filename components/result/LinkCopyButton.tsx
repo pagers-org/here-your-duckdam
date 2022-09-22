@@ -9,17 +9,18 @@ type LinkCopyButtonProps = {
 
 const LinkCopyButton = (props: LinkCopyButtonProps) => {
     const linkRef = useRef<HTMLSpanElement>(null);
-    const copyToClipboard = async () => {
+
+    const handleCopyToClipboard = () => {
         const link = linkRef.current?.innerText as string;
-        await navigator.clipboard.writeText(link);
-        await alert('링크가 복사되었습니다!');
+        navigator.clipboard.writeText(link);
+        alert('링크가 복사되었습니다!');
     };
 
     return (
         <Container>
             <Result ref={linkRef}>{props.children}</Result>
-            <CopyButton onClick={copyToClipboard}>
-                <StyledImage src={copyIcon} />
+            <CopyButton onClick={handleCopyToClipboard}>
+                <Image src={copyIcon} alt="URL 클립보드 복사 아이콘" />
             </CopyButton>
         </Container>
     );
@@ -29,42 +30,31 @@ export default LinkCopyButton;
 
 const Container = styled.div`
     background-color: ${({ theme }) => theme.color.white};
+    box-shadow: ${({ theme }) => theme.shadow.layout};
     display: flex;
     justify-content: space-between;
-    /* justify-content: flex-start; */
     align-items: center;
-    position: relative;
-    font-size: 18px;
     letter-spacing: 1px;
     height: 50px;
-    width: 80%;
-    border-radius: 5px;
+    width: 85%;
 `;
 
 const Result = styled.span`
-    word-wrap: break-word;
-    padding: 0px 7px;
-    max-width: calc(100% - 40px);
-    display: inline-block;
+    color: ${({ theme }) => theme.color.brown};
+    padding: 0px 12px;
+    overflow-y: auto;
+    font-weight: bold;
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    font-size: 14px;
+
     ::-webkit-scrollbar {
-        width: 1rem;
+        display: none;
     }
 `;
 
 const CopyButton = styled.button`
     background-color: ${({ theme }) => theme.color.brown};
     font-size: 16px;
-    max-width: 12%;
-    width: 9%;
+    width: 45px;
     height: 100%;
-`;
-
-const StyledImage = styled(Image)`
-    width: 80%;
-    height: 80%;
-    color: ${({ theme }) => theme.color.white};
+    padding-top: 5px;
 `;

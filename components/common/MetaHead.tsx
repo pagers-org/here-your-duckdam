@@ -19,21 +19,39 @@ const MetaHead = ({
     return (
         <Head>
             <title>{tabTitle}</title>
-            <meta name="description" content={description} />
+            <meta name="description" content={description} key="description" />
             <link rel="icon" href="/images/favicon.ico" />
+
             {/* default og */}
-            <meta property="og:type" content="website" />
-            <meta property="og:image" content={img_url} />
-            <meta property="og:image:width" content="1200" />
-            <meta property="og:image:height" content="600" />
-            <meta property="og:url" content={url} />
-            <meta property="og:title" content={title} />
-            <meta property="og:description" content={description} />
+            <meta property="og:type" content="website" key="ogType" />
+            <meta property="og:image" content={img_url} key="ogImage" />
+            <meta property="og:image:width" content="1200" key="ogImageWidth" />
+            <meta
+                property="og:image:height"
+                content="600"
+                key="ogImageHeight"
+            />
+            <meta property="og:url" content={url} key="ogURL" />
+            <meta property="og:title" content={title} key="ogTitle" />
+            <meta
+                property="og:description"
+                content={description}
+                key="ogDescription"
+            />
+
             {/* twitter og */}
-            <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:title" content={title} />
-            <meta name="twitter:description" content={description} />
-            <meta name="twitter:image" content={img_url} />
+            <meta
+                name="twitter:card"
+                content="summary_large_image"
+                key="ogTwitterCard"
+            />
+            <meta name="twitter:title" content={title} key="ogTwitterTitle" />
+            <meta
+                name="twitter:description"
+                content={description}
+                key="ogTwitterDescription"
+            />
+            <meta name="twitter:image" content={img_url} key="ogTwitterImage" />
         </Head>
     );
 };

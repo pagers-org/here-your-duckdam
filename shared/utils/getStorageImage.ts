@@ -1,3 +1,4 @@
+import { STORAGE_IMAGE_URL } from '@shared/constant/StorageImageUrl';
 export const getStorageImage = (index: number) => {
-    return `https://firebasestorage.googleapis.com/v0/b/here-your-duckdam.appspot.com/o/images%2F${index}.png?alt=media`;
+    return `${STORAGE_IMAGE_URL}%2F${index}.png?alt=media`;
 };

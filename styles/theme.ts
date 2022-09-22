@@ -5,7 +5,7 @@ export const color = {
     black: '#000',
     dark: '#222',
     darkGray: '#3A3A3A',
-    orange: '#FFCC8E',
+    orange: '#FFC075',
     brown: '#6B584B',
 } as const;
 

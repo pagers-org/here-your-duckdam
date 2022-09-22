@@ -1,38 +1,34 @@
-import {
-    Button,
-    Description,
-    MessageBox,
-    MetaHead,
-    Title,
-} from '@components/common';
+import { Button, Description, MessageBox, Title } from '@components/common';
 import { Bottom } from '@components/layout';
-import {
-    LinkCopyButton,
-    shareWithKakao,
-    shareWithTwitter,
-} from '@components/result';
+import { LinkCopyButton } from '@components/result';
 import styled from '@emotion/styled';
+import useKakao from '@shared/hooks/useKakao';
 import type { DuckDamWithImg } from '@shared/types/DuckDam';
 import { theme } from '@styles/index';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import loadingGif from 'public/icons/duckdam-package.svg';
+import duckdamPackage from 'public/icons/duckdam-package.png';
+import { useEffect } from 'react';
 
 type ResultProps = {
     data: DuckDamWithImg;
 };
 
 const Result = ({ data }: ResultProps) => {
+    const { initKakao, shareWithKakao, shareWithTwitter } = useKakao();
     const { img_url } = data;
     const router = useRouter();
     const resultId = router.query.resultId as string;
     const resultURL = process.env.NEXT_PUBLIC_SITE_URL + 'secret/' + resultId;
 
+    useEffect(() => {
+        initKakao();
+    }, [initKakao]);
+
     return (
         <>
-            <MetaHead />
             <Wrapper>
-                <Image src={loadingGif} alt="로딩 완료 이미지" />
+                <Image src={duckdamPackage} alt="달모양 덕담 패키지" />
 
                 <MessageBox>
                     <Title>덕담이 만들어졌어요!</Title>

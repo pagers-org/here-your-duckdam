@@ -1,4 +1,4 @@
-import { Button, Logo, MetaHead } from '@components/common';
+import { Button, Logo } from '@components/common';
 import { Bottom } from '@components/layout';
 import theme from '@styles/theme';
 import Link from 'next/link';
@@ -6,7 +6,6 @@ import Link from 'next/link';
 const Main = () => {
     return (
         <>
-            <MetaHead />
             <Logo />
             <Bottom>
                 <Link href="/attitude">
