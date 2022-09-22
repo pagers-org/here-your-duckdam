@@ -1,4 +1,5 @@
 import styled from '@emotion/styled';
+import MetaHead from '@components/common/MetaHead';
 
 type LayoutProps = {
     children: React.ReactNode;
@@ -7,6 +8,7 @@ type LayoutProps = {
 const Layout = ({ children }: LayoutProps) => {
     return (
         <>
+            <MetaHead />
             <Wrapper>{children}</Wrapper>
         </>
     );

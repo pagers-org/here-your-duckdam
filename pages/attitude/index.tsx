@@ -1,5 +1,5 @@
 import { AttitudeRange, MessageBox, MessageItem } from '@components/attitude';
-import { Button, Description, MetaHead, Title } from '@components/common';
+import { Button, Description, Title } from '@components/common';
 import { Bottom } from '@components/layout';
 import styled from '@emotion/styled';
 import useAttitudeHooks from '@shared/hooks/useAttitudeHooks';
@@ -17,7 +17,6 @@ const Attitude = () => {
 
     return (
         <>
-            <MetaHead />
             <Wrapper>
                 <SubTitle>다른 토끼들은 이런 덕담을 뽑았어요.</SubTitle>
                 <MessageBox>

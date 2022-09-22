@@ -1,10 +1,4 @@
-import {
-    Button,
-    Description,
-    MessageBox,
-    MetaHead,
-    Title,
-} from '@components/common';
+import { Button, Description, MessageBox, Title } from '@components/common';
 import { Bottom } from '@components/layout';
 import { LinkCopyButton } from '@components/result';
 import styled from '@emotion/styled';
@@ -13,8 +7,8 @@ import type { DuckDamWithImg } from '@shared/types/DuckDam';
 import { theme } from '@styles/index';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import loadingGif from 'public/icons/duckdam-package.svg';
-import React, { useEffect } from 'react';
+import duckdamPackage from 'public/icons/duckdam-package.png';
+import { useEffect } from 'react';
 
 type ResultProps = {
     data: DuckDamWithImg;
@@ -33,9 +27,8 @@ const Result = ({ data }: ResultProps) => {
 
     return (
         <>
-            <MetaHead />
             <Wrapper>
-                <Image src={loadingGif} alt="로딩 완료 이미지" />
+                <Image src={duckdamPackage} alt="달모양 덕담 패키지" />
 
                 <MessageBox>
                     <Title>덕담이 만들어졌어요!</Title>
