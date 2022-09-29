@@ -81,12 +81,11 @@ export async function getServerSideProps(context: {
     // );
     // const data = await res.json();
 
-    let result;
     const url = `${process.env.NEXT_PUBLIC_SITE_URL}/api/duckdam/${params.resultId}`;
-    axios.get(url).then(({ data }) => (result = data));
+    const { data } = await axios(url);
 
     return {
-        props: { result, id: params.resultId }, // will be passed to the page component as props
+        props: { data, id: params.resultId }, // will be passed to the page component as props
     };
 }
 
