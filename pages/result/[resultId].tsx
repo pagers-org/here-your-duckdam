@@ -76,11 +76,6 @@ export async function getServerSideProps(context: {
 }) {
     const { params } = context;
 
-    // const res = await fetch(
-    //     `${process.env.NEXT_PUBLIC_SITE_URL}/api/duckdam/${params.resultId}`
-    // );
-    // const data = await res.json();
-
     const url = `${process.env.NEXT_PUBLIC_SITE_URL}/api/duckdam/${params.resultId}`;
     const { data } = await axios(url);
 

@@ -10,18 +10,6 @@ const useDuckdam = () => {
         const newDuckDam = {
             ...randomNewDuckDam(politeLevel),
         };
-        // const response = await fetch('/api/duckdam/add', {
-        //     method: 'POST',
-        //     body: JSON.stringify(newDuckDam),
-        //     headers: {
-        //         'Content-Type': 'application/json',
-        //     },
-        // });
-
-        // const id = await response.json();
-        // if (response.ok) {
-        //     setTimeout(() => router.push(`/result/${id}`), 3000);
-        // }
 
         const url = '/api/duckdam/add';
         const dataDuckdam = newDuckDam;
