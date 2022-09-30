@@ -1,14 +1,15 @@
-import { Button, Description, MessageBox, Title } from '@components/common';
-import { Bottom } from '@components/layout';
-import { LinkCopyButton } from '@components/result';
 import styled from '@emotion/styled';
-import useKakao from '@shared/hooks/useKakao';
-import type { DuckDamWithImg } from '@shared/types/DuckDam';
-import { theme } from '@styles/index';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import duckdamPackage from 'public/icons/duckdam-package.png';
 import { useEffect } from 'react';
+
+import { Button, Description, MessageBox, Title } from '@/components/common';
+import { Bottom } from '@/components/layout';
+import { LinkCopyButton } from '@/components/result';
+import useKakao from '@/shared/hooks/useKakao';
+import type { DuckDamWithImg } from '@/shared/types/DuckDam';
+import { theme } from '@/styles/index';
 
 type ResultProps = {
     data: DuckDamWithImg;

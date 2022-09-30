@@ -1,6 +1,6 @@
 import '@emotion/react';
 
-import { color, shadow } from './theme';
+import { color, shadow } from '../../styles/theme';
 declare module '@emotion/react' {
     export interface Theme {
         color: Record<keyof typeof color, string>;

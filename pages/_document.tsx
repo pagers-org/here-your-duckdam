@@ -1,5 +1,6 @@
 import { Head, Html, Main, NextScript } from 'next/document';
-import { KakaoDeveloper } from '@components/scripts';
+
+import { KakaoDeveloper } from '@/components/scripts';
 
 export default function Document() {
     return (

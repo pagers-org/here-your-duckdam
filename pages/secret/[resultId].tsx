@@ -1,16 +1,17 @@
+import styled from '@emotion/styled';
+import Router, { useRouter } from 'next/router';
+
 import {
     Button,
     EmojiTitle,
     MessageBox,
     MetaHead,
     Title,
-} from '@components/common';
-import { Bottom } from '@components/layout';
-import { Card } from '@components/result';
-import styled from '@emotion/styled';
-import type { DuckDamWithImg } from '@shared/types/DuckDam';
-import { theme } from '@styles/index';
-import Router, { useRouter } from 'next/router';
+} from '@/components/common';
+import { Bottom } from '@/components/layout';
+import { Card } from '@/components/result';
+import type { DuckDamWithImg } from '@/shared/types/DuckDam';
+import { theme } from '@/styles/index';
 
 type ResultProps = {
     data: DuckDamWithImg;

@@ -1,6 +1,7 @@
 import styled from '@emotion/styled';
-import { PoliteKeys } from '@shared/constant/CardMessage';
 import React, { useState } from 'react';
+
+import { PoliteKeys } from '@/shared/constant/CardMessage';
 
 const AttitudeRange = (props: {
     initialValue: number;

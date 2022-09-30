@@ -1,4 +1,4 @@
-import type { ShareKakaoType } from '@shared/types/SharedKakao';
+import type { ShareKakaoType } from '@/shared/types/SharedKakao';
 
 const useKakao = () => {
     const shareWithKakao = ({

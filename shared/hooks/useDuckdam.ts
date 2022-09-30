@@ -1,5 +1,5 @@
-import type { PoliteKey } from '@shared/types/DuckDam';
-import { randomNewDuckDam } from '@shared/utils/duckdamGenerator';
+import type { PoliteKey } from '@/shared/types/DuckDam';
+import { randomNewDuckDam } from '@/shared/utils/duckdamGenerator';
 import { useRouter } from 'next/router';
 
 const useDuckdam = () => {

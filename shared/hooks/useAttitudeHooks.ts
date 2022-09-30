@@ -1,5 +1,5 @@
-import { PoliteKey } from '@shared/types/DuckDam';
-import { randomNewDuckDamMessage } from '@shared/utils/duckdamGenerator';
+import { PoliteKey } from '@/shared/types/DuckDam';
+import { randomNewDuckDamMessage } from '@/shared/utils/duckdamGenerator';
 import { useEffect, useMemo, useState } from 'react';
 const useAttitudeHooks = () => {
     const [politeRange, setPoliteRange] = useState<number>(50);

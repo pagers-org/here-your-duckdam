@@ -1,5 +1,6 @@
 import Script from 'next/script';
-import { GA_TRACKING_ID } from '@shared/utils/gtag';
+
+import { GA_TRACKING_ID } from '@/shared/utils/gtag';
 
 const GoogleAnalytics = () => {
     if (!GA_TRACKING_ID) {

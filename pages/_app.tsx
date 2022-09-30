@@ -1,11 +1,12 @@
-import Layout from '@components/layout/Layout';
 import { Global, ThemeProvider } from '@emotion/react';
-import { pageview } from '@shared/utils/gtag';
-import { global, theme } from '@styles/index';
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
-import { GoogleAnalytics } from '@components/scripts';
+
+import Layout from '@/components/layout/Layout';
+import { GoogleAnalytics } from '@/components/scripts';
+import { pageview } from '@/shared/utils/gtag';
+import { global, theme } from '@/styles/index';
 
 function MyApp({ Component, pageProps }: AppProps) {
     const router = useRouter();

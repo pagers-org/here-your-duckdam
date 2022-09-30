@@ -1,7 +1,8 @@
-import { Button, Description, EmojiTitle, Title } from '@components/common';
-import { Bottom } from '@components/layout';
-import theme from '@styles/theme';
 import Link from 'next/link';
+
+import { Button, Description, EmojiTitle, Title } from '@/components/common';
+import { Bottom } from '@/components/layout';
+import theme from '@/styles/theme';
 
 const Custom404 = () => {
     return (
