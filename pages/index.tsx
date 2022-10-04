@@ -8,7 +8,7 @@ const Main = () => {
         <>
             <Logo />
             <Bottom>
-                <Link href="/attitude">
+                <Link href="/select">
                     <Button
                         color={theme.light.text.button}
                         backgroundColor={theme.light.bg.button}
