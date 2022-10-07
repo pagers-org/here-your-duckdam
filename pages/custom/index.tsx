@@ -1,13 +1,12 @@
-// import { Button, Description, EmojiTitle, Title } from '@components/common';
-// import { Card } from '@components/result';
 import { StyledCard } from '@components/result/Card';
 import styled from '@emotion/styled';
 import useCustomMessage from '@shared/hooks/useCustomMessage';
+import axios from 'axios';
 import { useRouter } from 'next/router';
 
 const Custom = () => {
     const router = useRouter();
-    const { setCustomMessage } = useCustomMessage();
+    const { customMessage, setCustomMessage } = useCustomMessage();
     const customCards = [
         {
             id: 'first_word',
@@ -42,21 +41,36 @@ const Custom = () => {
         );
     });
 
+    const postMessage = async () => {
+        const newDuckDam = { img_url: 'image', ...customMessage };
+        console.log(newDuckDam);
+        const url = '/api/duckdam/add';
+        const { status } = await axios.post(url, newDuckDam, {
+            headers: {
+                'Content-Type': 'application/json',
+            },
+        });
+
+        if (status === 200) {
+            router.push(`load`);
+        }
+    };
+
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        const firstWord = event.target.first_word.value;
-        const secondWord = event.target.second_word.value;
-        const thirdWord = event.target.third_word.value;
+        const first_word = event.target.first_word.value;
+        const second_word = event.target.second_word.value;
+        const third_word = event.target.third_word.value;
 
         const customMessageData = {
-            firstWord,
-            secondWord,
-            thirdWord,
+            first_word,
+            second_word,
+            third_word,
         };
         setCustomMessage(customMessageData);
 
-        router.push(`load/?isCustom`);
+        postMessage();
     };
 
     return (
@@ -96,7 +110,6 @@ const StyledForm = styled.form`
     align-items: center;
     justify-content: space-around;
 `;
-
 const CustomCard = styled(StyledCard)`
     flex-direction: column;
     height: 100%;
@@ -108,7 +121,6 @@ const CustomCard = styled(StyledCard)`
         margin-top: 1em;
     }
 `;
-
 const CustomButton = styled.input`
     position: absolute;
     bottom: 10%;
