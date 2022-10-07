@@ -1,17 +1,18 @@
+import styled from '@emotion/styled';
+import axios from 'axios';
+import Router, { useRouter } from 'next/router';
+
 import {
     Button,
     EmojiTitle,
     MessageBox,
     MetaHead,
     Title,
-} from '@components/common';
-import { Bottom } from '@components/layout';
-import { Card } from '@components/result';
-import styled from '@emotion/styled';
-import type { DuckDamWithImg } from '@shared/types/DuckDam';
-import { theme } from '@styles/index';
-import axios from 'axios';
-import Router, { useRouter } from 'next/router';
+} from '@/components/common';
+import { Bottom } from '@/components/layout';
+import { Card } from '@/components/result';
+import type { DuckDamWithImg } from '@/shared/types/DuckDam';
+import { theme } from '@/styles/index';
 
 type ResultProps = {
     data: DuckDamWithImg;
@@ -45,8 +46,8 @@ const ResultDetail = ({ data }: ResultProps) => {
                         onClick={() => {
                             Router.push('/');
                         }}
-                        color={theme.light.text.button}
-                        backgroundColor={theme.light.bg.button}
+                        color={theme.color.text.white}
+                        backgroundColor={theme.color.background.button}
                     >
                         나도 덕담 나눌래!
                     </Button>

@@ -1,6 +1,7 @@
-import { LoadingLogo, Title } from '@components/common';
-import useDuckdam from '@shared/hooks/useDuckdam';
 import { useEffect } from 'react';
+
+import { LoadingLogo, Title } from '@/components/common';
+import useDuckdam from '@/shared/hooks/useDuckdam';
 
 const Load = () => {
     const {

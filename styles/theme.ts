@@ -1,56 +1,34 @@
 export const color = {
-    buttonYellow: '#FFDC61',
-    yellow: '#FBE54D',
-    white: '#fff',
-    black: '#000',
-    dark: '#222',
-    darkGray: '#3A3A3A',
-    orange: '#FFC075',
-    brown: '#6B584B',
-} as const;
+    background: {
+        white: '#ffffff',
+        black: '#000000',
 
-export const shadow = {
-    layout: `rgba(149, 157, 165, 0.2) 0px 8px 24px`,
-    range: `0 0 5px rgba(0, 0, 0, 0.4)`,
-    ball: `0 0 5px rgba(0, 0, 0, 0.4)`,
-} as const;
-
-type ThemeTypes = 'primary' | 'button' | 'message' | 'link';
-export interface ThemeMode {
-    bg: Partial<Record<ThemeTypes, string>>;
-    text: Partial<Record<ThemeTypes, string>>;
-}
-
-export const light: ThemeMode = {
-    bg: {
         primary: '#fdf5e6',
         button: '#6b584B',
+        range: '#3A3A3A',
         message: '#FFC075',
     },
     text: {
+        white: '#ffffff',
+        black: '#000000',
+
         primary: '#493F37',
         link: '#493F37',
         button: '#f8f8f8',
+        description: '#3A3A3A',
     },
 } as const;
 
-export const dark: ThemeMode = {
-    bg: {
-        primary: '#1c184e',
-        button: '#ffdc61',
-        message: '#ffc075',
-    },
-    text: {
-        primary: '#f8f8f8',
-        link: '#1c184e',
-        button: '#1c184e',
-    },
+export const shadow = {
+    dp_2: '0px 1px 2px rgba(58, 58, 68, 0.24), 0px 2px 4px rgba(90, 91, 106, 0.24)',
+    dp_4: '0px 2px 4px rgba(58, 58, 68, 0.2), 0px 4px 8px rgba(90, 91, 106, 0.2)',
+    dp_8: '0px 4px 8px rgba(58, 58, 68, 0.16), 0px 8px 16px rgba(90, 91, 106, 0.16)',
+    dp_16: '0px 8px 16px rgba(58, 58, 68, 0.12), 0px 16px 32px rgba(90, 91, 106, 0.12)',
+    dp_24: '0px 12px 24px rgba(58, 58, 68, 0.08), 0px 24px 48px rgba(90, 91, 106, 0.08)',
 } as const;
 
 export const theme = {
     color,
-    light,
-    dark,
     shadow,
 };
 

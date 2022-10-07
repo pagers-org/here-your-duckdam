@@ -1,7 +1,8 @@
-import { Button, Description, EmojiTitle, Title } from '@components/common';
-import { Bottom } from '@components/layout';
-import theme from '@styles/theme';
 import Link from 'next/link';
+
+import { Button, Description, EmojiTitle, Title } from '@/components/common';
+import { Bottom } from '@/components/layout';
+import theme from '@/styles/theme';
 
 const Custom404 = () => {
     return (
@@ -16,8 +17,8 @@ const Custom404 = () => {
             <Bottom>
                 <Link href="/">
                     <Button
-                        color={theme.light.text.button}
-                        backgroundColor={theme.light.bg.button}
+                        color={theme.color.text.white}
+                        backgroundColor={theme.color.background.button}
                     >
                         덕담 만들러 가기
                     </Button>

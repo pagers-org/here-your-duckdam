@@ -1,16 +1,17 @@
-import Layout from '@components/layout/Layout';
 import { Global, ThemeProvider } from '@emotion/react';
-import { GA_TRACKING_ID, pageview } from '@shared/utils/gtag';
-import { global, theme } from '@styles/index';
 import type { AppProps } from 'next/app';
 import { useRouter } from 'next/router';
-import Script from 'next/script';
 import { useEffect } from 'react';
+
+import Layout from '@/components/layout/Layout';
+import { GoogleAnalytics } from '@/components/scripts';
+import { pageview } from '@/shared/utils/gtag';
+import { global, theme } from '@/styles/index';
 
 function MyApp({ Component, pageProps }: AppProps) {
     const router = useRouter();
     useEffect(() => {
-        const handleRouteChange = (url: string) => {
+        const handleRouteChange = (url: URL) => {
             pageview(url);
         };
         router.events.on('routeChangeComplete', handleRouteChange);
@@ -22,25 +23,8 @@ function MyApp({ Component, pageProps }: AppProps) {
 
     return (
         <>
-            {/* Global Site Tag (gtag.js) - Google Analytics */}
-            <Script
-                strategy="afterInteractive"
-                src={`https://www.googletagmanager.com/gtag/js?id=${GA_TRACKING_ID}`}
-            />
-            <Script
-                id="gtag-init"
-                strategy="afterInteractive"
-                dangerouslySetInnerHTML={{
-                    __html: `
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag(){dataLayer.push(arguments);}
-                    gtag('js', new Date());
-                    gtag('config', '${GA_TRACKING_ID}', {
-                    page_path: window.location.pathname,
-                    });
-                `,
-                }}
-            />
+            <GoogleAnalytics />
+
             <ThemeProvider theme={theme}>
                 <Global styles={global} />
                 <Layout>

@@ -16,11 +16,13 @@ export default MessageItem;
 const Wrapper = styled.div<{ type: string; direction?: DirectionTypes }>`
     position: relative;
     background-color: ${({ theme, type }) =>
-        type === 'guest' ? theme.color.white : theme.color.orange};
+        type === 'guest'
+            ? theme.color.background.white
+            : theme.color.background.message};
     border-radius: 2rem;
     padding: 1rem;
     margin: 0.3rem;
-    color: ${({ theme }) => theme.color.black};
+    color: ${({ theme }) => theme.color.text.black};
 
     :after {
         content: '';
@@ -31,7 +33,9 @@ const Wrapper = styled.div<{ type: string; direction?: DirectionTypes }>`
         height: 0;
         border: 20px solid transparent;
         border-left-color: ${({ theme, type }) =>
-            type === 'guest' ? theme.color.white : theme.color.orange};
+            type === 'guest'
+                ? theme.color.background.white
+                : theme.color.background.message};
         border-right: 0;
         border-bottom: 0;
         margin-top: -10px;

@@ -1,14 +1,15 @@
 import styled from '@emotion/styled';
-import React from 'react';
+import { ButtonHTMLAttributes, PropsWithChildren } from 'react';
 
-type ButtonType = {
-    children: React.ReactNode;
-    onClick?: () => void;
-    color?: string;
-    backgroundColor?: string;
-};
+import { color } from '@/styles/theme';
+interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+    backgroundColor?: typeof color.background[keyof typeof color.background];
+}
 
-const Button = ({ children, ...otherProps }: ButtonType) => {
+const Button = ({
+    children,
+    ...otherProps
+}: PropsWithChildren<ButtonProps>) => {
     return (
         <Wrapper>
             <StyledButton {...otherProps}>{children}</StyledButton>
@@ -24,7 +25,7 @@ const Wrapper = styled.div`
     text-align: center;
 `;
 
-const StyledButton = styled.button<ButtonType>`
+const StyledButton = styled.button<ButtonProps>`
     width: 90%;
     color: ${(props) => props.color};
     background-color: ${(props) => props.backgroundColor};

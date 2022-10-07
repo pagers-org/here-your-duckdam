@@ -1,4 +1,4 @@
-import type { ShareKakaoType } from '@shared/types/SharedKakao';
+import type { ShareKakaoType } from '@/shared/types/SharedKakao';
 
 const useKakao = () => {
     const shareWithKakao = ({
@@ -41,7 +41,7 @@ const useKakao = () => {
     const initKakao = () => {
         const { Kakao } = window;
         try {
-            if (Kakao) {
+            if (!Kakao.isInitialized()) {
                 Kakao.init(process.env.NEXT_PUBLIC_KAKAO_API_KEY);
             }
         } catch (error) {
