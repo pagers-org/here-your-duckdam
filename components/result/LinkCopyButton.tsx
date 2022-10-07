@@ -3,11 +3,7 @@ import Image from 'next/image';
 import copyIcon from 'public/images/copy-icon.svg';
 import React, { useRef } from 'react';
 
-type LinkCopyButtonProps = {
-    children: React.ReactNode;
-};
-
-const LinkCopyButton = (props: LinkCopyButtonProps) => {
+const LinkCopyButton = (props: { children: React.ReactNode }) => {
     const linkRef = useRef<HTMLSpanElement>(null);
 
     const handleCopyToClipboard = () => {
