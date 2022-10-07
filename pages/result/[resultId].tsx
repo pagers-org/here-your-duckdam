@@ -5,6 +5,7 @@ import styled from '@emotion/styled';
 import useKakao from '@shared/hooks/useKakao';
 import type { DuckDamWithImg } from '@shared/types/DuckDam';
 import { theme } from '@styles/index';
+import axios from 'axios';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import duckdamPackage from 'public/icons/duckdam-package.png';
@@ -75,10 +76,8 @@ export async function getServerSideProps(context: {
 }) {
     const { params } = context;
 
-    const res = await fetch(
-        `${process.env.NEXT_PUBLIC_SITE_URL}/api/duckdam/${params.resultId}`
-    );
-    const data = await res.json();
+    const url = `${process.env.NEXT_PUBLIC_SITE_URL}/api/duckdam/${params.resultId}`;
+    const { data } = await axios(url);
 
     return {
         props: { data, id: params.resultId }, // will be passed to the page component as props
