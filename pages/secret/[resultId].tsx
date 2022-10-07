@@ -45,8 +45,8 @@ const ResultDetail = ({ data }: ResultProps) => {
                         onClick={() => {
                             Router.push('/');
                         }}
-                        color={theme.light.text.button}
-                        backgroundColor={theme.light.bg.button}
+                        color={theme.color.text.white}
+                        backgroundColor={theme.color.background.button}
                     >
                         나도 덕담 나눌래!
                     </Button>

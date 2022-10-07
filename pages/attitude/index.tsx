@@ -36,8 +36,8 @@ const Attitude = () => {
                 <Bottom>
                     <Button
                         onClick={handleAddNewDuckDam}
-                        color={theme.light.text.button}
-                        backgroundColor={theme.light.bg.button}
+                        color={theme.color.text.white}
+                        backgroundColor={theme.color.background.button}
                     >
                         유교 수치 정했어! 😋
                     </Button>

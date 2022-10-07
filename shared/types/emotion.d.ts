@@ -1,21 +1,10 @@
 import '@emotion/react';
+import { color, shadow } from '@/styles/theme';
 
-import { color, shadow } from '../../styles/theme';
+export interface CustomTheme {
+    color: typeof color;
+    shadow: typeof shadow;
+}
 declare module '@emotion/react' {
-    export interface Theme {
-        color: Record<keyof typeof color, string>;
-        shadow: Record<keyof typeof shadow, string>;
-    }
-    export interface ThemeMode {
-        bg: {
-            primary: string;
-            button: string;
-            message: string;
-        };
-        text: {
-            primary: string;
-            link: string;
-            button: string;
-        };
-    }
+    export interface Theme extends CustomTheme {}
 }

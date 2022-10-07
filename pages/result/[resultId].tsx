@@ -50,8 +50,8 @@ const Result = ({ data }: ResultProps) => {
                         };
                         shareWithKakao(props);
                     }}
-                    color={theme.light.text.button}
-                    backgroundColor={theme.light.bg.button}
+                    color={theme.color.text.white}
+                    backgroundColor={theme.color.background.button}
                 >
                     카톡으로 비밀덕담 나누기
                 </Button>
@@ -59,8 +59,8 @@ const Result = ({ data }: ResultProps) => {
                     onClick={() => {
                         shareWithTwitter(resultURL);
                     }}
-                    color={theme.light.text.button}
-                    backgroundColor={theme.light.bg.button}
+                    color={theme.color.text.white}
+                    backgroundColor={theme.color.background.button}
                 >
                     트위터로 비밀덕담 나누기
                 </Button>

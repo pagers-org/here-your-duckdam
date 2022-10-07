@@ -69,7 +69,7 @@ const StyledRange = styled.div`
 
     /* Chrome & Safari  */
     input[type='range']::-webkit-slider-runnable-track {
-        background: ${({ theme }) => theme.color.darkGray};
+        background: ${({ theme }) => theme.color.background.range};
         border-radius: 4px;
         height: 10px;
         cursor: pointer;
@@ -87,7 +87,7 @@ const StyledRange = styled.div`
 
     /* Firefox */
     input[type='range']::-moz-range-track {
-        background: ${({ theme }) => theme.color.darkGray};
+        background: ${({ theme }) => theme.color.background.range};
         border-radius: 4px;
         width: 100%;
         height: 10px;
@@ -106,7 +106,7 @@ const StyledRange = styled.div`
 
     /* IE */
     input[type='range']::-ms-track {
-        background: ${({ theme }) => theme.color.darkGray};
+        background: ${({ theme }) => theme.color.background.range};
         border-radius: 4px;
         width: 100%;
         height: 10px;

@@ -10,8 +10,8 @@ const Card = ({ children }: Item) => {
 export default Card;
 
 const StyledCard = styled.div`
-    background-color: ${({ theme }) => theme.color.orange};
-    box-shadow: ${({ theme }) => theme.shadow.layout};
+    background-color: ${({ theme }) => theme.color.background.message};
+    box-shadow: ${({ theme }) => theme.shadow.dp_4};
     width: 90%;
     height: 80px;
     margin: 13px 0px;

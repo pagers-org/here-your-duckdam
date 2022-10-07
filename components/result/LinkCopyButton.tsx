@@ -29,8 +29,8 @@ const LinkCopyButton = (props: LinkCopyButtonProps) => {
 export default LinkCopyButton;
 
 const Container = styled.div`
-    background-color: ${({ theme }) => theme.color.white};
-    box-shadow: ${({ theme }) => theme.shadow.layout};
+    background-color: ${({ theme }) => theme.color.background.white};
+    box-shadow: ${({ theme }) => theme.shadow.dp_8};
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -40,7 +40,7 @@ const Container = styled.div`
 `;
 
 const Result = styled.span`
-    color: ${({ theme }) => theme.color.brown};
+    color: ${({ theme }) => theme.color.background.button};
     padding: 0px 12px;
     overflow-y: auto;
     font-weight: bold;
@@ -52,7 +52,7 @@ const Result = styled.span`
 `;
 
 const CopyButton = styled.button`
-    background-color: ${({ theme }) => theme.color.brown};
+    background-color: ${({ theme }) => theme.color.background.button};
     font-size: 16px;
     width: 45px;
     height: 100%;
