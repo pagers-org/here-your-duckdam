@@ -1,12 +1,9 @@
 import axios from 'axios';
-import { useRouter } from 'next/router';
 
 import type { PoliteKey } from '@/shared/types/DuckDam';
 import { randomNewDuckDam } from '@/shared/utils/duckdamGenerator';
 
 const useDuckdam = () => {
-    const router = useRouter();
-
     const addNewDuckDam = async (politeLevel: PoliteKey) => {
         const newDuckDam = {
             ...randomNewDuckDam(politeLevel),
@@ -24,15 +21,7 @@ const useDuckdam = () => {
         }
     };
 
-    const hasPoliteLevel = (politeLevel: unknown): politeLevel is PoliteKey => {
-        return politeLevel !== undefined && typeof politeLevel === 'string';
-    };
-
-    const getPoliteLevel = () => {
-        return router.query.politeLevel;
-    };
-
-    return { addNewDuckDam, hasPoliteLevel, getPoliteLevel };
+    return { addNewDuckDam };
 };
 
 export default useDuckdam;
