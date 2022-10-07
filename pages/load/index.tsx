@@ -1,22 +1,19 @@
+import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
 import { LoadingLogo, Title } from '@/components/common';
-import useDuckdam from '@/shared/hooks/useDuckdam';
 
 const Load = () => {
-    const {
-        addNewDuckDam: addNewDuckDamHandler,
-        hasPoliteLevel,
-        getPoliteLevel,
-    } = useDuckdam();
+    const router = useRouter();
+    const { id } = router.query;
 
     useEffect(() => {
-        const politeLevel = getPoliteLevel();
+        const timer = setTimeout(() => router.push(`/result/${id}`), 3000);
 
-        if (hasPoliteLevel(politeLevel)) {
-            addNewDuckDamHandler(politeLevel);
-        }
-    }, [addNewDuckDamHandler, getPoliteLevel, hasPoliteLevel]);
+        return () => {
+            clearTimeout(timer);
+        };
+    }, [id, router]);
 
     return (
         <>

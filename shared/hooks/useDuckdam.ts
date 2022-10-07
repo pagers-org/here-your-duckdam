@@ -20,7 +20,7 @@ const useDuckdam = () => {
         });
 
         if (status === 200) {
-            setTimeout(() => router.push(`/result/${data}`), 3000);
+            return data;
         }
     };
 

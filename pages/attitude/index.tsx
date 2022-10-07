@@ -5,15 +5,20 @@ import { AttitudeRange, MessageBox, MessageItem } from '@/components/attitude';
 import { Button, Description, Title } from '@/components/common';
 import { Bottom } from '@/components/layout';
 import useAttitudeHooks from '@/shared/hooks/useAttitudeHooks';
+import useDuckdam from '@/shared/hooks/useDuckdam';
 import theme from '@/styles/theme';
 
 const Attitude = () => {
     const { message1, message2, askMessage, politeLevel, setPoliteRange } =
         useAttitudeHooks();
+
+    const { addNewDuckDam } = useDuckdam();
+
     const router = useRouter();
 
-    const handleAddNewDuckDam = () => {
-        router.push(`load/?politeLevel=${politeLevel}`);
+    const handleAddNewDuckDam = async () => {
+        const id = await addNewDuckDam(politeLevel);
+        router.push(`load/?id=${id}`);
     };
 
     return (
