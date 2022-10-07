@@ -17,6 +17,7 @@
     "@firebase/firestore": "^3.4.15",
     "@firebase/storage": "^0.9.9",
     "firebase-tools": "^11.8.0",
+    "axios": "^0.27.2",
     "next": "12.2.5",
     "react": "18.2.0",
     "react-dom": "18.2.0"
