@@ -1,7 +1,8 @@
-import type { PoliteKey } from '@/shared/types/DuckDam';
-import { randomNewDuckDam } from '@/shared/utils/duckdamGenerator';
 import axios from 'axios';
 import { useRouter } from 'next/router';
+
+import type { PoliteKey } from '@/shared/types/DuckDam';
+import { randomNewDuckDam } from '@/shared/utils/duckdamGenerator';
 
 const useDuckdam = () => {
     const router = useRouter();
