@@ -2,7 +2,8 @@ import styled from '@emotion/styled';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 
-import { StyledCard } from '@/components/result/Card';
+import { Subtitle, Title } from '@/components/common';
+import { StyledSubtitle } from '@/components/common/Subtitle';
 import useCustomMessage from '@/shared/hooks/useCustomMessage';
 
 const Custom = () => {
@@ -11,24 +12,24 @@ const Custom = () => {
     const customCards = [
         {
             id: 'first_word',
-            title: '누구에게',
+            title: '누구에게?',
             placeholder: 'ex) 할로윈을 외롭게 보내고 있을 친구에게',
         },
         {
             id: 'second_word',
-            title: '무엇을',
+            title: '무엇을?',
             placeholder: 'ex) 내가 최고로 아끼는 눈깔 사탕을',
         },
         {
             id: 'third_word',
-            title: '어떻게',
+            title: '어떻게?',
             placeholder: 'ex) 먹는 퍼포먼스를 보여줄게 냠ㅋ',
         },
     ];
     const customCardsList = customCards.map((card) => {
         return (
             <CustomCard key={customCards.indexOf(card)}>
-                <h3>{card.title}</h3>
+                <SubtitleVariation>{card.title}</SubtitleVariation>
                 <div>
                     <input
                         id={card.id}
@@ -77,6 +78,7 @@ const Custom = () => {
     return (
         <>
             <Wrapper>
+                <Subtitle>뭐라고 써서 말장난을 칠까?</Subtitle>
                 <StyledForm
                     // action="/api/duckdam/add"
                     // method="post"
@@ -86,7 +88,7 @@ const Custom = () => {
 
                     <CustomButton
                         type="submit"
-                        value="놀릴 준비 됐어 😋"
+                        value="이제 놀릴 준비 됐어..."
                     ></CustomButton>
                 </StyledForm>
             </Wrapper>
@@ -111,13 +113,21 @@ const StyledForm = styled.form`
     align-items: center;
     justify-content: space-around;
 `;
-const CustomCard = styled(StyledCard)`
+const CustomCard = styled.div`
     flex-direction: column;
-    height: 100%;
+    width: 90%;
+    height: 80px;
+    position: relative;
+    background: ${({ theme }) => theme.color.background.blur};
+    border: 2px solid ${({ theme }) => theme.color.background.white};
+    border-radius: 45px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     input {
+        font-size: 15px;
         width: 250px;
         border: none;
-        border-bottom: 1px solid gray;
         background: none;
         margin-top: 1em;
     }
@@ -129,8 +139,14 @@ const CustomButton = styled.input`
     height: 4em;
     border: none;
     border-radius: 5px;
-    background-color: ${({ theme }) => theme.color.yellow};
-    color: ${({ theme }) => theme.color.dark};
+    background-color: ${({ theme }) => theme.color.background.button};
+    color: ${({ theme }) => theme.color.text.black};
     font-weight: bold;
     font-size: 1em;
+`;
+
+const SubtitleVariation = styled(StyledSubtitle)`
+    position: absolute;
+    top: -30px;
+    left: 5px;
 `;

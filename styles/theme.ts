@@ -4,9 +4,10 @@ export const color = {
         black: '#000000',
 
         primary: '#fdf5e6',
-        button: '#6b584B',
+        button: '#FEAF77',
         range: '#3A3A3A',
         message: '#FFC075',
+        blur: 'rgba(255, 255, 255, 0.5)',
     },
     text: {
         white: '#ffffff',

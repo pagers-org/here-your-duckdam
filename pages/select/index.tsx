@@ -1,13 +1,14 @@
 import styled from '@emotion/styled';
 import Link from 'next/link';
 
-import { Description, Title } from '@/components/common';
+import { Description, Subtitle, Title } from '@/components/common';
 
 const Select = () => {
     return (
         <>
             <Wrapper>
-                <Title>원하는 말장난 유형을 골라봐...</Title>
+                <Subtitle>원하는 말장난 유형을 골라봐...</Subtitle>
+
                 <Link href="/attitude">
                     <Selection>
                         <Title>토끼의 도움이 필요해...</Title>
@@ -20,8 +21,8 @@ const Select = () => {
                     <Selection>
                         <Title>난 내가 친구를 놀려볼래!</Title>
                         <Description>
-                            ((토끼가 당신을 전적으로 믿을게요! 직접
-                            생성해보세요!))
+                            (토끼가 당신을 전적으로 믿을게요! 직접
+                            생성해보세요!)
                         </Description>
                     </Selection>
                 </Link>
