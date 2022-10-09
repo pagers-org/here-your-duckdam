@@ -1,8 +1,9 @@
-import { StyledCard } from '@components/result/Card';
 import styled from '@emotion/styled';
-import useCustomMessage from '@shared/hooks/useCustomMessage';
 import axios from 'axios';
 import { useRouter } from 'next/router';
+
+import { StyledCard } from '@/components/result/Card';
+import useCustomMessage from '@/shared/hooks/useCustomMessage';
 
 const Custom = () => {
     const router = useRouter();
