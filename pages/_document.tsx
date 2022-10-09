@@ -1,13 +1,12 @@
 import { Head, Html, Main, NextScript } from 'next/document';
 
+import { KakaoDeveloper } from '@/components/scripts';
+
 export default function Document() {
     return (
         <Html>
             <Head>
-                <script
-                    defer
-                    src="https://developers.kakao.com/sdk/js/kakao.min.js"
-                ></script>
+                <KakaoDeveloper />
             </Head>
             <body>
                 <Main />

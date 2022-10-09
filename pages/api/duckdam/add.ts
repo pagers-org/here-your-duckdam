@@ -1,9 +1,12 @@
 import { addDoc, collection } from '@firebase/firestore';
-import { db } from '@shared/utils/firebase';
 import { NextApiRequest, NextApiResponse } from 'next';
 
+import { HttpStatusCode } from '@/shared/constant/HttpStatusCode';
+import { RequestMethod } from '@/shared/constant/RequestMethod';
+import { db } from '@/shared/utils/firebase';
+
 async function handler(req: NextApiRequest, res: NextApiResponse) {
-    if (req.method === 'POST') {
+    if (req.method === RequestMethod.POST) {
         const { img_url, first_word, second_word, third_word } = req.body;
 
         const docRef = await addDoc(collection(db, 'duckdam'), {
@@ -12,7 +15,7 @@ async function handler(req: NextApiRequest, res: NextApiResponse) {
             second_word: second_word,
             third_word: third_word,
         });
-        res.status(200).json(docRef.id);
+        res.status(HttpStatusCode.OK).json(docRef.id);
     }
 }
 

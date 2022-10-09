@@ -1,15 +1,16 @@
-import { Button, Description, MessageBox, Title } from '@components/common';
-import { Bottom } from '@components/layout';
-import { LinkCopyButton } from '@components/result';
 import styled from '@emotion/styled';
-import useKakao from '@shared/hooks/useKakao';
-import type { DuckDamWithImg } from '@shared/types/DuckDam';
-import { theme } from '@styles/index';
 import axios from 'axios';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import duckdamPackage from 'public/icons/duckdam-package.png';
 import { useEffect } from 'react';
+
+import { Button, Description, MessageBox, Title } from '@/components/common';
+import { Bottom } from '@/components/layout';
+import { LinkCopyButton } from '@/components/result';
+import useKakao from '@/shared/hooks/useKakao';
+import type { DuckDamWithImg } from '@/shared/types/DuckDam';
+import { theme } from '@/styles/index';
 
 type ResultProps = {
     data: DuckDamWithImg;
@@ -50,8 +51,8 @@ const Result = ({ data }: ResultProps) => {
                         };
                         shareWithKakao(props);
                     }}
-                    color={theme.light.text.button}
-                    backgroundColor={theme.light.bg.button}
+                    color={theme.color.text.white}
+                    backgroundColor={theme.color.background.button}
                 >
                     카톡으로 비밀덕담 나누기
                 </Button>
@@ -59,8 +60,8 @@ const Result = ({ data }: ResultProps) => {
                     onClick={() => {
                         shareWithTwitter(resultURL);
                     }}
-                    color={theme.light.text.button}
-                    backgroundColor={theme.light.bg.button}
+                    color={theme.color.text.white}
+                    backgroundColor={theme.color.background.button}
                 >
                     트위터로 비밀덕담 나누기
                 </Button>

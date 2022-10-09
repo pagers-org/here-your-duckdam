@@ -1,5 +1,6 @@
-import MetaHead from '@components/common/MetaHead';
 import styled from '@emotion/styled';
+
+import MetaHead from '@/components/common/MetaHead';
 
 type LayoutProps = {
     children: React.ReactNode;
@@ -26,7 +27,7 @@ const Wrapper = styled.div`
     max-width: 480px;
     width: 100%;
     height: 100vh;
-    box-shadow: ${({ theme }) => theme.shadow.layout};
+    box-shadow: ${({ theme }) => theme.shadow.dp_4};
     background: url('/images/background.png') #fcf5e5;
     background-size: contain;
     background-repeat: no-repeat;

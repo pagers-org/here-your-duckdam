@@ -1,18 +1,24 @@
-import { AttitudeRange, MessageBox, MessageItem } from '@components/attitude';
-import { Button, Description, Title } from '@components/common';
-import { Bottom } from '@components/layout';
 import styled from '@emotion/styled';
-import useAttitudeHooks from '@shared/hooks/useAttitudeHooks';
-import theme from '@styles/theme';
 import { useRouter } from 'next/router';
+
+import { AttitudeRange, MessageBox, MessageItem } from '@/components/attitude';
+import { Button, Description, Title } from '@/components/common';
+import { Bottom } from '@/components/layout';
+import useAttitudeHooks from '@/shared/hooks/useAttitudeHooks';
+import useDuckdam from '@/shared/hooks/useDuckdam';
+import theme from '@/styles/theme';
 
 const Attitude = () => {
     const { message1, message2, askMessage, politeLevel, setPoliteRange } =
         useAttitudeHooks();
+
+    const { addNewDuckDam } = useDuckdam();
+
     const router = useRouter();
 
-    const handleAddNewDuckDam = () => {
-        router.push(`load/?politeLevel=${politeLevel}`);
+    const handleAddNewDuckDam = async () => {
+        const id = await addNewDuckDam(politeLevel);
+        router.push(`load/?id=${id}`);
     };
 
     return (
@@ -35,8 +41,8 @@ const Attitude = () => {
                 <Bottom>
                     <Button
                         onClick={handleAddNewDuckDam}
-                        color={theme.light.text.button}
-                        backgroundColor={theme.light.bg.button}
+                        color={theme.color.text.white}
+                        backgroundColor={theme.color.background.button}
                     >
                         유교 수치 정했어! 😋
                     </Button>
