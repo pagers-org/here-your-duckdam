@@ -1,7 +1,7 @@
 import styled from '@emotion/styled';
 import Link from 'next/link';
 
-import { Description, Subtitle, Title } from '@/components/common';
+import { Subtitle } from '@/components/common';
 
 const Select = () => {
     return (
@@ -55,4 +55,22 @@ const Selection = styled.button`
     word-break: break-all;
     background-color: ${({ theme }) => theme.color.background.white};
     box-shadow: ${({ theme }) => theme.shadow.dp_16};
+`;
+
+const Title = styled.div`
+    word-break: keep-all;
+    font-size: 25px;
+    font-weight: bold;
+    letter-spacing: -0.29px;
+    color: ${({ theme }) => theme.color.text.black};
+`;
+
+const Description = styled.div`
+    margin-top: 10px;
+    font-size: 14px;
+    word-break: break-all;
+    color: ${({ theme }) => theme.color.text.black};
+    line-height: 150%;
+    letter-spacing: -0.2px;
+    text-align: center;
 `;

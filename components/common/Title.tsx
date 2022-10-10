@@ -12,5 +12,5 @@ const StyledTitle = styled.div`
     font-size: 25px;
     font-weight: bold;
     letter-spacing: -0.29px;
-    color: ${({ theme }) => theme.color.text.black};
+    color: ${({ theme }) => theme.color.text.white};
 `;

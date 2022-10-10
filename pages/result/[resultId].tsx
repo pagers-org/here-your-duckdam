@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import axios from 'axios';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
-import duckdamPackage from 'public/icons/duckdam-package.png';
+import duckdamPackage from 'public/icons/halloween/halloween_package.png';
 import { useEffect } from 'react';
 
 import { Button, Description, MessageBox, Title } from '@/components/common';
