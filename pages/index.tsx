@@ -8,6 +8,7 @@ const Main = () => {
     return (
         <>
             <Logo />
+
             <Bottom>
                 <Link href="/select">
                     <Button

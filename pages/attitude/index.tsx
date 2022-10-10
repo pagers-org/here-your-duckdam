@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import { useRouter } from 'next/router';
 
 import { AttitudeRange, MessageBox, MessageItem } from '@/components/attitude';
-import { Button, Description, Title } from '@/components/common';
+import { Button, Description, Subtitle, Title } from '@/components/common';
 import { Bottom } from '@/components/layout';
 import useAttitudeHooks from '@/shared/hooks/useAttitudeHooks';
 import useDuckdam from '@/shared/hooks/useDuckdam';
@@ -24,7 +24,7 @@ const Attitude = () => {
     return (
         <>
             <Wrapper>
-                <SubTitle>다른 토끼들은 이런 덕담을 뽑았어요.</SubTitle>
+                <Subtitle>다른 토끼들은 이런 덕담을 뽑았어요.</Subtitle>
                 <MessageBox>
                     <MessageItem>{message1}</MessageItem>
                     <MessageItem>{message2}</MessageItem>
@@ -54,9 +54,6 @@ const Attitude = () => {
 
 export default Attitude;
 
-const SubTitle = styled.h2`
-    font-size: 20px;
-`;
 const Wrapper = styled.div`
     width: 100%;
     height: 100%;

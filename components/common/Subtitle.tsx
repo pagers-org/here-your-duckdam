@@ -9,9 +9,10 @@ export default Subtitle;
 
 export const StyledSubtitle = styled.div`
     position: absolute;
-    top: 10%;
+    top: 10px;
     word-break: keep-all;
-    font-size: 18px;
+    font-size: 20px;
     font-weight: bold;
     letter-spacing: -0.29px;
+    /* color: ${({ theme }) => theme.color.text.white}; */
 `;

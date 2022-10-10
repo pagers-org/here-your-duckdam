@@ -2,7 +2,7 @@ import styled from '@emotion/styled';
 import axios from 'axios';
 import { useRouter } from 'next/router';
 
-import { Subtitle, Title } from '@/components/common';
+import { Subtitle } from '@/components/common';
 import { StyledSubtitle } from '@/components/common/Subtitle';
 import useCustomMessage from '@/shared/hooks/useCustomMessage';
 
@@ -107,11 +107,11 @@ const Wrapper = styled.div`
 `;
 const StyledForm = styled.form`
     width: 100%;
-    height: 50%;
+    height: 80%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-around;
+    justify-content: start;
 `;
 const CustomCard = styled.div`
     flex-direction: column;
@@ -131,6 +131,7 @@ const CustomCard = styled.div`
         background: none;
         margin-top: 1em;
     }
+    margin-top: 50px;
 `;
 const CustomButton = styled.input`
     position: absolute;
