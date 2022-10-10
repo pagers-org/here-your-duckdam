@@ -1,12 +1,10 @@
-import { PoliteKey } from '@shared/types/DuckDam';
-import { randomNewDuckDamMessage } from '@shared/utils/duckdamGenerator';
-import { useEffect, useMemo, useState } from 'react';
+import { useState } from 'react';
 
 const useCustomMessage = () => {
     const [customMessage, setCustomMessage] = useState({
-        firstWord: '',
-        secondWord: '',
-        thirdWord: '',
+        first_word: '',
+        second_word: '',
+        third_word: '',
     });
 
     return {
