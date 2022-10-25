@@ -1,10 +1,10 @@
 import { useState } from 'react';
 
+import { DefaultPreviewImageUrl } from '@/shared/constant/DefaultPreviewImageUrl';
+
 const useCustomMessage = () => {
-    const tempImgURL =
-        'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png';
     const [customMessage, setCustomMessage] = useState({
-        img_url: tempImgURL,
+        img_url: DefaultPreviewImageUrl,
         first_word: '',
         second_word: '',
         third_word: '',
