@@ -2,11 +2,13 @@ export const color = {
     background: {
         white: '#ffffff',
         black: '#000000',
+        halloween_black: '#1c184e',
 
         primary: '#fdf5e6',
         button: '#FEAF77',
         range: '#3A3A3A',
         message: '#FFC075',
+
         blur: 'rgba(255, 255, 255, 0.5)',
     },
     text: {
