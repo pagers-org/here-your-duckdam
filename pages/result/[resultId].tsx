@@ -9,11 +9,11 @@ import { Button, Description, MessageBox, Title } from '@/components/common';
 import { Bottom } from '@/components/layout';
 import { LinkCopyButton } from '@/components/result';
 import useKakao from '@/shared/hooks/useKakao';
-import type { DuckDamWithImg } from '@/shared/types/DuckDam';
+import type { DuckdamWithImg } from '@/shared/types/Duckdam';
 import { theme } from '@/styles/index';
 
 type ResultProps = {
-    data: DuckDamWithImg;
+    data: DuckdamWithImg;
 };
 
 const Result = ({ data }: ResultProps) => {

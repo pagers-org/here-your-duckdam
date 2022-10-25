@@ -12,12 +12,12 @@ const Attitude = () => {
     const { message1, message2, askMessage, politeLevel, setPoliteRange } =
         useAttitudeHooks();
 
-    const { addNewDuckDam } = useDuckdam();
+    const { addNewDuckdam } = useDuckdam();
 
     const router = useRouter();
 
-    const handleAddNewDuckDam = async () => {
-        const id = await addNewDuckDam(politeLevel);
+    const handleAddNewDuckdam = async () => {
+        const id = await addNewDuckdam(politeLevel);
         router.push(`load/?id=${id}`);
     };
 
@@ -40,7 +40,7 @@ const Attitude = () => {
                 />
                 <Bottom>
                     <Button
-                        onClick={handleAddNewDuckDam}
+                        onClick={handleAddNewDuckdam}
                         color={theme.color.text.white}
                         backgroundColor={theme.color.background.button}
                     >

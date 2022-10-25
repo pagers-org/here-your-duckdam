@@ -7,7 +7,7 @@ import { Subtitle } from '@/components/common';
 import { StyledSubtitle } from '@/components/common/Subtitle';
 import useCustomMessage from '@/shared/hooks/useCustomMessage';
 import useDuckdam from '@/shared/hooks/useDuckdam';
-import { DuckDamWithImg } from '@/shared/types/DuckDam';
+import { DuckdamWithImg } from '@/shared/types/Duckdam';
 
 const Custom = () => {
     const router = useRouter();
@@ -45,13 +45,13 @@ const Custom = () => {
             </CustomCard>
         );
     });
-    const { addNewDuckDam } = useDuckdam(customMessage);
+    const { addNewDuckdam } = useDuckdam(customMessage);
     const postMessage = async () => {
         const newCustomDuckdam = {
             ...customMessage,
         };
 
-        const id = await addNewDuckDam(newCustomDuckdam);
+        const id = await addNewDuckdam(newCustomDuckdam);
         router.push(`load/?id=${id}`);
     };
 
@@ -64,7 +64,7 @@ const Custom = () => {
         const second_word = target.second_word.value;
         const third_word = target.third_word.value;
 
-        const customMessageData: DuckDamWithImg = {
+        const customMessageData: DuckdamWithImg = {
             img_url:
                 'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png',
             first_word: first_word,
@@ -80,11 +80,7 @@ const Custom = () => {
         <>
             <Wrapper>
                 <Subtitle>뭐라고 써서 말장난을 칠까?</Subtitle>
-                <StyledForm
-                    // action="/api/duckdam/add"
-                    // method="post"
-                    onSubmit={handleSubmit}
-                >
+                <StyledForm onSubmit={handleSubmit}>
                     {customCardsList}
 
                     <CustomButton
