@@ -9,7 +9,7 @@ import theme from '@/styles/theme';
 const Custom404 = () => {
     return (
         <>
-            <Image src={logo} layout="fixed" alt="❎" />;
+            <Image src={logo} layout="fixed" alt="❎" />
             <Title> 토끼가 찾을 수 없는 곳에 계신 것 같아요.</Title>
             <Description>
                 하지만 저희가 도움을 드릴게요!👨‍💻 <br />
