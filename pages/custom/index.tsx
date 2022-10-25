@@ -1,10 +1,13 @@
 import styled from '@emotion/styled';
-import axios from 'axios';
+// import axios from 'axios';
 import { useRouter } from 'next/router';
+import React from 'react';
 
 import { Subtitle } from '@/components/common';
 import { StyledSubtitle } from '@/components/common/Subtitle';
 import useCustomMessage from '@/shared/hooks/useCustomMessage';
+import useDuckdam from '@/shared/hooks/useDuckdam';
+import { DuckDamWithImg } from '@/shared/types/DuckDam';
 
 const Custom = () => {
     const router = useRouter();
@@ -42,33 +45,31 @@ const Custom = () => {
             </CustomCard>
         );
     });
-
+    const { addNewDuckDam } = useDuckdam(customMessage);
     const postMessage = async () => {
-        const newDuckDam = { img_url: 'image', ...customMessage };
-        console.log(newDuckDam);
-        const url = '/api/duckdam/add';
-        const { status } = await axios.post(url, newDuckDam, {
-            headers: {
-                'Content-Type': 'application/json',
-            },
-        });
+        const newCustomDuckdam = {
+            ...customMessage,
+        };
 
-        if (status === 200) {
-            router.push(`load`);
-        }
+        const id = await addNewDuckDam(newCustomDuckdam);
+        router.push(`load/?id=${id}`);
     };
 
-    const handleSubmit = (event) => {
+    const handleSubmit = (event: React.SyntheticEvent) => {
         event.preventDefault();
 
-        const first_word = event.target.first_word.value;
-        const second_word = event.target.second_word.value;
-        const third_word = event.target.third_word.value;
+        const target = event.target as HTMLFormElement;
 
-        const customMessageData = {
-            first_word,
-            second_word,
-            third_word,
+        const first_word = target.first_word.value;
+        const second_word = target.second_word.value;
+        const third_word = target.third_word.value;
+
+        const customMessageData: DuckDamWithImg = {
+            img_url:
+                'https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Image_created_with_a_mobile_phone.png/640px-Image_created_with_a_mobile_phone.png',
+            first_word: first_word,
+            second_word: second_word,
+            third_word: third_word,
         };
         setCustomMessage(customMessageData);
 
@@ -145,7 +146,6 @@ const CustomButton = styled.input`
     font-weight: bold;
     font-size: 1em;
 `;
-
 const SubtitleVariation = styled(StyledSubtitle)`
     position: absolute;
     top: -30px;
